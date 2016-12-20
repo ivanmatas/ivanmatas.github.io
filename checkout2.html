@@ -151,7 +151,7 @@
                                         <h2 class="panel-title">
                                             <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 Thanks for volunteering with the Harvard Innovation Labs. <br /> Please enter your information below. &nbsp;
-                                                <button class="btn btn-primary" id="linkedin" style="margin-bottom: 10px;">Import from LinkedIn</button>
+                                                <button class="btn btn-custom" id="linkedin" style="margin-bottom: 10px;">Import from LinkedIn</button>
                                                
                                             </a>
                                             
@@ -166,61 +166,48 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                 
-                                                        <h3 class="title-border custom mb30">Your Informations</h3>
+                                                        <h3 class="title-border custom mb30">Personal Information</h3>
                                                         <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">First Name</span></span>
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">First Name *</span></span>
                                                             <input type="text" required class="form-control" placeholder="First Name" id="person_first_name">
                                                         </div><!-- End .input-group -->
                                                         <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">Last Name</span></span>
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">Last Name *</span></span>
                                                             <input type="text" required class="form-control" placeholder="Last Name" id="person_last_name">
                                                         </div><!-- End .input-group -->
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-email"></span><span class="input-text">Email</span></span>
-                                                            <input type="text" required class="form-control" placeholder="Email" id="person_email">
-                                                        </div><!-- End .input-group -->
+
                                                         <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-phone"></span><span class="input-text">Title</span></span>
-                                                            <input type="text" required class="form-control" placeholder="Title" id="person_title">
+                                                            <input type="text" class="form-control" placeholder="Title" id="person_title">
                                                         </div><!-- End .input-group -->
                                                         <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-fax"></span><span class="input-text">Industry</span></span>
                                                             <input type="text" class="form-control" placeholder="Industry" id="person_industry">
                                                         </div><!-- End .input-group -->
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-company"></span><span class="input-text">Company</span></span>
-                                                            <input type="text" required class="form-control" placeholder="Your Company">
-                                                        </div><!-- End .input-group -->
-                                                        
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-password"></span><span class="input-text">Password</span></span>
-                                                            <input type="password" required class="form-control" placeholder="Your Password">
-                                                        </div><!-- End .input-group -->
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-password"></span><span class="input-text">Password</span></span>
-                                                            <input type="password" required class="form-control" placeholder="Your Password">
-                                                        </div><!-- End .input-group -->
+
 
                                                     </div><!-- End .col-md-6 -->
 
                                                     <div class="mb30 visible-xs visible-sm"></div><!-- space -->
                                         
                                                     <div class="col-md-6">
-                                                        <h3 class="title-border custom mb30">Your Address</h3>
+                                                        <h3 class="title-border custom mb30">Contact Information</h3>
                                                         
+
                                                         <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-address"></span><span class="input-text">Address 1</span></span>
-                                                            <input type="text" class="form-control" placeholder="Your Address">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-email"></span><span class="input-text">Email *</span></span>
+                                                            <input type="text" required class="form-control" placeholder="Email" id="person_email">
+                                                        </div><!-- End .input-group -->
+
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-city"></span><span class="input-text">Secondary email</span></span>
+                                                            <input type="text" class="form-control" placeholder="Do you have another email address?" id="person_secondary_email">
                                                         </div><!-- End .input-group -->
                                                         <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-city"></span><span class="input-text">City</span></span>
-                                                            <input type="text" required class="form-control" placeholder="Your City">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-postcode"></span><span class="input-text">Phone number</span></span>
+                                                            <input type="text" class="form-control" placeholder="Your Phone Number">
                                                         </div><!-- End .input-group -->
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-postcode"></span><span class="input-text">Post Code</span></span>
-                                                            <input type="text" required class="form-control" placeholder="Your Post Code">
-                                                        </div><!-- End .input-group -->
-                                                        <div class="input-group">
+<!--                                                         <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Country*</span></span>
                                                             <div class="clearfix">
                                                                 <select id="country" name="country" class="form-control">
@@ -230,23 +217,12 @@
                                                                     <option  value="Italy">Italy</option>
                                                                     <option  value="Spain">Spain</option>
                                                                 </select>
-                                                            </div><!-- End .large-selectbox-->
-                                                        </div><!-- End .input-group -->
+                                                            </div>
+                                                        </div> -->
 
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-region"></span><span class="input-text">Region / State</span></span>
-                                                            <div class="clearfix">
-                                                                <select id="state" name="state" class="form-control">
-                                                                    <option  value="California">California</option>
-                                                                    <option  value="Texas">Texas</option>
-                                                                    <option  value="NewYork">NewYork</option>
-                                                                    <option  value="Narnia">Narnia</option>
-                                                                    <option  value="Jumanji">Jumanji</option>
-                                                                </select>
-                                                            </div><!-- End .large-selectbox-->
-                                                        </div><!-- End .input-group -->
+     
 
-                                                        <div class="checkbox input-group">
+<!--                                                         <div class="checkbox input-group">
                                                           <label class="custom-checkbox-wrapper">
                                                             <span class="custom-checkbox-container">
                                                                 <input type="checkbox" name="shipadd" value="jeans">
@@ -254,17 +230,9 @@
                                                             </span>
                                                            I want to use my old address for this shipping
                                                           </label>
-                                                        </div><!-- End .checkbox -->
-
-                                                        <div class="checkbox input-group">
-                                                          <label class="custom-checkbox-wrapper">
-                                                            <span class="custom-checkbox-container">
-                                                                <input type="checkbox" name="newslttt" value="jeans">
-                                                                <span class="custom-checkbox-icon"></span>
-                                                            </span>
-                                                           I have wish to subscribe Boss's weekly newsletter.
-                                                          </label>
-                                                        </div><!-- End .checkbox -->
+                                                        </div> -->
+<!-- 
+    
 
                                                         <div class="checkbox input-group">
                                                           <label class="custom-checkbox-wrapper">
@@ -274,11 +242,13 @@
                                                             </span>
                                                            I have reed and agree to the <a href="#">Privacy Policy</a>.
                                                           </label>
-                                                        </div><!-- End .checkbox -->
+                                                        </div> -->
 
-                                                        <input type="submit" class="btn btn-custom" value="Confirm and Continue">
+                                                       <!--  <input type="submit" class="btn btn-custom" value="Confirm and Continue" style="width: 100%;"> -->
                                                     </div><!-- End .col-md-6 -->
                                                 </div><!-- End .row -->
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
+                                                <h3 class="title-border custom mb30">School Information</h3>
                                             </form> 
 
                                         </div><!-- End .panel-body -->
