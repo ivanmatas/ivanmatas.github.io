@@ -457,7 +457,7 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label for="message" class="input-desc">Comments</label>
-                                                            <textarea class="form-control" rows="6" id="message" name="message" placeholder="Is there anything else we should know?"></textarea>
+                                                            <textarea class="form-control" rows="6" id="comment" name="message" placeholder="Is there anything else we should know?"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -537,6 +537,9 @@
             school_name = $('#school').val();
             school_year = $('#school_year').val();
 
+            main_contact = $('#main_contact').val();
+            message = $('#comment').val();
+
             roles = $("input[name=roles]:checked").map(function(){
                         return this.value;
                     }).get();
@@ -555,7 +558,11 @@
                     name: school_name,
                     year: school_year
                 },
-                roles: roles
+                roles: roles,
+                miscellaneous: {
+                    message: message,
+                    main_contact: main_contact
+                }
             });
             // $('#input_form').submit();
         });
