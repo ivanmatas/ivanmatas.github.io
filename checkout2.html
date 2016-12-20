@@ -161,7 +161,7 @@
                                     <div id="collapseTwo" class="panel-collapse " role="tabpanel" aria-labelledby="headingTwo">
                                         <div class="panel-body" style="padding-bottom: 0px;">
 
-                                            <form action="#">
+                                            <form action="http://localhost:3000/people" id="input_form">
                     
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -169,7 +169,7 @@
                                                         <h3 class="title-border custom mb30">Personal Information</h3>
                                                         <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">First Name *</span></span>
-                                                            <input type="text" required class="form-control" placeholder="First Name" id="person_first_name">
+                                                            <input type="text" required class="form-control" placeholder="First Name" id="person_first_name" name="first_name">
                                                         </div><!-- End .input-group -->
                                                         <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">Last Name *</span></span>
@@ -207,44 +207,7 @@
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-postcode"></span><span class="input-text">Phone number</span></span>
                                                             <input type="text" class="form-control" placeholder="Your Phone Number">
                                                         </div><!-- End .input-group -->
-<!--                                                         <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Country*</span></span>
-                                                            <div class="clearfix">
-                                                                <select id="country" name="country" class="form-control">
-                                                                    <option  value="United Kingdom">United Kingdom</option>
-                                                                    <option  value="Brazil">Brazil</option>
-                                                                    <option  value="France">France</option>
-                                                                    <option  value="Italy">Italy</option>
-                                                                    <option  value="Spain">Spain</option>
-                                                                </select>
-                                                            </div>
-                                                        </div> -->
 
-     
-
-<!--                                                         <div class="checkbox input-group">
-                                                          <label class="custom-checkbox-wrapper">
-                                                            <span class="custom-checkbox-container">
-                                                                <input type="checkbox" name="shipadd" value="jeans">
-                                                                <span class="custom-checkbox-icon"></span>
-                                                            </span>
-                                                           I want to use my old address for this shipping
-                                                          </label>
-                                                        </div> -->
-<!-- 
-    
-
-                                                        <div class="checkbox input-group">
-                                                          <label class="custom-checkbox-wrapper">
-                                                            <span class="custom-checkbox-container">
-                                                                <input type="checkbox" name="jeans" value="jeans" checked>
-                                                                <span class="custom-checkbox-icon"></span>
-                                                            </span>
-                                                           I have reed and agree to the <a href="#">Privacy Policy</a>.
-                                                          </label>
-                                                        </div> -->
-
-                                                       <!--  <input type="submit" class="btn btn-custom" value="Confirm and Continue" style="width: 100%;"> -->
                                                     </div><!-- End .col-md-6 -->
                                                 </div><!-- End .row -->
                                                 <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
@@ -506,7 +469,7 @@
 
 
                             </div><!-- End .panel-group -->
-                            <button class="btn btn-custom" style="width: 100%;">Submit</button>
+                            <button class="btn btn-custom" style="width: 100%;" id="submit_button">Submit</button>
                         </div><!-- End .col-md-9 -->
 
                     </div><!-- End .row -->
@@ -560,7 +523,26 @@
 
     <script src="js/linkedin_functions.js"></script>
 
+    <script>
+        $('#submit_button').click(function(){
+            first_name = $('#person_first_name').val();
+            last_name = $('#person_last_name').val();
+            email = $('#person_email').val();
+            title = $('#person_title').val();
+            industry = $('#person_industry').val();
 
+            $.post( "http://localhost:3000/people", {
+                person: {
+                    first_name: first_name,
+                    last_name: last_name,
+                    title: title,
+                    industry: industry,
+                    email: email
+                }
+            });
+            // $('#input_form').submit();
+        });
+    </script>
 	
     </body>
 </html>
