@@ -134,6 +134,7 @@
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-fax"></span><span class="input-text">Industry</span></span>
                                                             <div class="clearfix">
                                                                 <select class="form-control" id="person_industry">
+                                                                    <option value="" selected>What industry are you in?</option>
                                                                     <option value="Consumer Health and Wellness">Consumer Health and Wellness</option>
                                                                     <option value="Life Sciences/Medical Devices">Life Sciences/Medical Devices</option>
                                                                     <option value="B2B Business Products & Services">B2B Business Products & Services</option>
@@ -149,6 +150,69 @@
                                                                 </select>
                                                             </div>
                                                         </div><!-- End .input-group -->
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-fax"></span><span class="input-text">Expertise</span></span>
+                                                            <div class="clearfix">
+                                                                <select class="form-control" id="person_expertise">
+                                                                    <option value="" selected>Choose your area of expertise</option>
+                                                                    <option value="Branding">Branding</option>
+                                                                    <option value="Business Development">Business Development</option>
+                                                                    <option value="Business Modeling">Business Modeling</option>
+                                                                    <option value="Business Planning">Business Planning</option>
+                                                                    <option value="Distribution Channels">Distribution Channels</option>
+                                                                    <option value="Coding & Software Development">Coding & Software Development</option>
+                                                                    <option value="Customer Development">Customer Development</option>
+                                                                    <option value="Human Resources">Human Resources</option>
+                                                                    <option value="Big Data">Big Data</option>
+                                                                    <option value="Product Design">Product Design</option>
+                                                                    <option value="Product Development">Product Development</option>
+                                                                    <option value="User Interface Design">User Interface Design</option>
+                                                                    <option value="User Experience">User Experience</option>
+                                                                    <option value="Exiting">Exiting</option>
+                                                                    <option value="First Time Entrepreneurs">First Time Entrepreneurs</option>
+                                                                    <option value="Fundraising">Fundraising</option>
+                                                                    <option value="Legal">Legal</option>
+                                                                    <option value="Deal Negotiation">Deal NegotiatioN</option>
+                                                                    <option value="Term Sheets">Term Sheets</option>
+                                                                    <option value="Intellectual Property">Intellectual Property</option>
+                                                                    <option value="Bootstrapping">Bootstrapping</option>
+                                                                    <option value="Ideating">Ideating</option>
+                                                                    <option value="Launching">Launching</option>
+                                                                    <option value="Leadership">Leadership</option>
+                                                                    <option value="Management">Management</option>
+                                                                    <option value="Marketing ">Marketing </option>
+                                                                    <option value="Operations">Operations</option>
+                                                                    <option value="Networking">Networking</option>
+                                                                    <option value="Partnering">Partnering</option>
+                                                                    <option value="Pitching">Pitching</option>
+                                                                    <option value="PR & Communications">PR & Communications</option>
+                                                                    <option value="Recruiting">Recruiting</option>
+                                                                    <option value="Team Building">Team Building</option>
+                                                                    <option value="User Testing">User Testing</option>
+                                                                    <option value="Venture Capital">Venture Capital</option>
+                                                                    <option value="Investment">Investment</option>
+                                                                    <option value="Government">Government</option>
+                                                                    <option value="Healthcare Systems">Healthcare Systems</option>
+                                                                    <option value="Manufacturing/Distribution">Manufacturing/Distribution</option>
+                                                                    <option value="Travel and Tourism">Travel and Tourism</option>
+                                                                    <option value="Sales">Sales</option>
+                                                                    <option value="Organizational Design">Organizational Design</option>
+                                                                    <option value="IT">IT</option>
+                                                                    <option value="Cybersecurity">Cybersecurity</option>
+                                                                    <option value="Enterprise Software">Enterprise Software</option>
+                                                                    <option value="Gaming and consumer software">Gaming and consumer software</option>
+                                                                    <option value="Hardware">Hardware</option>
+                                                                    <option value="Robotics">Robotics</option>
+                                                                    <option value="Internet and Web">Internet and Web</option>
+                                                                    <option value="Internet of Things">Internet of Things</option>
+                                                                    <option value="Online Commerce">Online Commerce</option>
+                                                                    <option value="Mobile">Mobile</option>
+                                                                    <option value="Saas">Saas</option>
+                                                                    <option value="Cloud Technologies">Cloud Technologies</option>
+                                                                </select>
+                                                            </div>
+                                                        </div><!-- End .input-group -->
+
 
 
                                                     </div><!-- End .col-md-6 -->
@@ -522,6 +586,7 @@ var validator = $( "#input_form" ).validate({
             phone_number = $('#person_phone_number').val();
             title = $('#person_title').val();
             industry = $('#person_industry').val();
+            expertise = $('#person_expertise').val();
 
             school_name = $('#school').val();
             school_year = $('#school_year').val();
@@ -543,7 +608,8 @@ var validator = $( "#input_form" ).validate({
                     second_email: second_email,
                     phone_number: phone_number,
                     remote_pic_url: $('#person_pic').val(),
-                    note: message
+                    note: message,
+                    expertise: expertise
                 },
                 school: {
                     name: school_name,
