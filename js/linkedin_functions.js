@@ -29,7 +29,7 @@
         $('#picture_frame').attr('src', data.pictureUrl);
         $('#person_remote_pic_url').val(data.pictureUrl);
         $('#person_title').val(data.headline);
-        $('#person_industry').val(data.industry);
+        // $('#person_industry').val(data.industry);
         log_out();
     }
 
