@@ -97,6 +97,7 @@
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h2 class="panel-title">
                                             <div class="alert alert-success" id="success_message" style="display: none; margin-top: 10px;"></div>
+                                            <div class="alert alert-danger" id="error_message" style="display: none; margin-top: 10px;"></div>
                                             <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 Thanks for volunteering with the Harvard Innovation Labs. <br /> Please enter your information below. &nbsp;
                                                 <button class="btn btn-custom" id="linkedin" style="margin-bottom: 10px;">Import from LinkedIn</button>
@@ -517,7 +518,11 @@
                 $('#success_message').html("Thanks!  We'll be in touch!");
                 $('#success_message').show();
                 $('#scroll-top').click();
-            });
+            }).fail(function() {
+                $('#error_message').html("Please fix the errors below.");
+                $('#error_message').show();
+                $('#scroll-top').click();
+              });
             // $('#input_form').submit();
         });
     </script>
