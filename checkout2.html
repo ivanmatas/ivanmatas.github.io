@@ -501,7 +501,8 @@
                     email: email,
                     second_email: second_email,
                     phone_number: phone_number,
-                    remote_pic_url: $('#person_pic').val()
+                    remote_pic_url: $('#person_pic').val(),
+                    note: message
                 },
                 school: {
                     name: school_name,
@@ -509,7 +510,7 @@
                 },
                 roles: roles,
                 miscellaneous: {
-                    message: message,
+                    // message: message,  message does not go here because on the backend it is just a part of a user
                     main_contact: main_contact
                 }
             }, function(){
