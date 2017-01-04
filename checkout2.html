@@ -24,6 +24,7 @@
 
         <!--- jQuery -->
         <script src="js/jquery.min.js"></script>
+        <script src="js/harvard/jquery.validate.js"></script>
 
         <!-- Queryloader -->
         <script src="js/queryloader2.min.js"></script>
@@ -116,13 +117,13 @@
                                                     <div class="col-md-6">
                                                 
                                                         <h3 class="title-border custom mb30">Personal Information</h3>
-                                                        <div class="input-group">
+                                                        <div class="input-group" id="first_name_holder">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">First Name *</span></span>
-                                                            <input type="text" required class="form-control" placeholder="First Name" id="person_first_name" name="first_name">
+                                                            <input type="text" class="form-control" placeholder="First Name" id="person_first_name" name="first_name">
                                                         </div><!-- End .input-group -->
-                                                        <div class="input-group">
+                                                        <div class="input-group" id="last_name_holder">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">Last Name *</span></span>
-                                                            <input type="text" required class="form-control" placeholder="Last Name" id="person_last_name">
+                                                            <input type="text" class="form-control" placeholder="Last Name" id="person_last_name" name="last_name">
                                                         </div><!-- End .input-group -->
 
                                                         <div class="input-group">
@@ -143,9 +144,9 @@
                                                         <h3 class="title-border custom mb30">Contact Information</h3>
                                                         
 
-                                                        <div class="input-group">
+                                                        <div class="input-group" id="email_holder">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-email"></span><span class="input-text">Email *</span></span>
-                                                            <input type="text" required class="form-control" placeholder="Email" id="person_email">
+                                                            <input type="email" class="form-control" placeholder="Email" id="person_email" name="email">
                                                         </div><!-- End .input-group -->
 
                                                         <div class="input-group">
@@ -474,7 +475,31 @@
 
     <script>
 
+var validator = $( "#input_form" ).validate({
+    rules: {
+        first_name: {required: true},
+        last_name: {required: true},
+        email: {required: true}
+    },
+    errorPlacement : function(error, element) {
+        if(element.attr("name") == "first_name"){
+            $('#first_name_holder').before(error);
+            // $('#first_name_holder').css("margin-bottom", "0px");
+        }else if (element.attr("name") == "last_name"){
+            $('#last_name_holder').before(error);
+        }else if (element.attr("name") == "email"){
+            $('#email_holder').before(error);
+        }
+        // $('.alert-danger').append(error)
+    }
+});
+
+
+        // $("#input_form").validate();
+
+
         $('#submit_button').click(function(){
+            validator.form();
             first_name = $('#person_first_name').val();
             last_name = $('#person_last_name').val();
             email = $('#person_email').val();
@@ -515,11 +540,12 @@
                     main_contact: main_contact
                 }
             }, function(){
+                $('#error_message').hide();
                 $('#success_message').html("Thanks!  We'll be in touch!");
                 $('#success_message').show();
                 $('#scroll-top').click();
             }).fail(function() {
-                $('#error_message').html("Please fix the errors below.");
+                $('#error_message').prepend("Please fix the errors below.");
                 $('#error_message').show();
                 $('#scroll-top').click();
               });
@@ -529,3 +555,10 @@
 	
     </body>
 </html>
+
+<style type="text/css">
+    
+    .error{
+        color: red;
+    }
+</style>
