@@ -79,6 +79,7 @@ Version:1.0
 28. Owl Carousel
 29. Scroll Top Button
 30. Retina Display
+31. Custom Styles created by Phil
 
 --------------------------------------------------
 ==================== Import =================== */
@@ -16039,3 +16040,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	/* End patterns */
 
 }
+
+/* ===========================================================
+--------------  31. Custom Styles created by Phil  -----------
+=============================================================*/
+@media (max-width: 767px) {
+    .btn-margin-small-screen {
+        margin-top: 18px;
+    }
+}
+

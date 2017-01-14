@@ -11,7 +11,7 @@
         
         <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/animate.css">
         <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/style.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" id="color-scheme" href="https://codeundercoverdev.github.io/input_form_for_guests/css/colors/green.css">
         
         <!-- Favicon and Apple Icons -->
@@ -100,17 +100,21 @@
                                             <div class="alert alert-success" id="success_message" style="display: none; margin-top: 10px;"></div>
                                             <div class="alert alert-danger" id="error_message" style="display: none; margin-top: 10px;"></div>
                                             <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                Thanks for volunteering with the Harvard Innovation Labs. <br /> Please enter your information below. &nbsp;<br />Add to your profile with this LinkedIn import:&nbsp;&nbsp;
-                                                <button class="btn btn-custom" id="linkedin" style="margin-bottom: 10px;">Import from LinkedIn</button>
+                                                Thanks for wanting to help with the Harvard Innovation Labs. <br /> Please enter your information below. &nbsp;<br />
                                                
                                             </a>
                                             
                                         </h2>
                                     </div><!-- End .panel-heading -->
 
-                                    <div id="collapseTwo" class="panel-collapse " role="tabpanel" aria-labelledby="headingTwo">
-                                        <div class="panel-body" style="padding-bottom: 0px;">
 
+                                    <div id="collapseTwo" class="panel-collapse " role="tabpanel" aria-labelledby="headingTwo">
+
+                                        <div class="panel-body" style="padding-bottom: 0px; padding-top: 16px;">
+                                            <h3 style="margin-bottom: 19px;">
+                                                Add your basic information and photo from LinkedIn:&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-custom btn-margin-small-screen" id="linkedin" style="margin-bottom: 3px;">Import from LinkedIn</button>
+                                            </h3>
                                             <form action="http://localhost:3000/people" id="input_form">
                     
                                                 <div class="row">
