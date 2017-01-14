@@ -11,7 +11,7 @@
         
         <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/animate.css">
         <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/style.css">
         <link rel="stylesheet" id="color-scheme" href="https://codeundercoverdev.github.io/input_form_for_guests/css/colors/green.css">
         
         <!-- Favicon and Apple Icons -->
@@ -841,9 +841,78 @@
                                                     </div>
                                                 </div>
                                                 <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
-                                                <h3 class="title-border custom mb30">Harvard School Information</h3>
+                                                <h3 class="title-border custom mb30">If you attended Harvard, please complete the following:</h3>
                                                 <div class="row">
                                                     <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Affilitation</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="school_affiliation" name="school_affiliation" class="form-control">
+                                                                    <option disabled selected value>What's your connection to Harvard?</option>
+                                                                    <option  value="alumni">Alumni</option>
+                                                                    <option  value="faculty">Faculty</option>
+                                                                    <option  value="employee">Employee</option>
+                                                                    <option  value="post_doc">Post Doc</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-bottom: 20px;">
+                                                    <div class="col-xs-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <h5>Degrees</h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+
+                                                            <div class="col-sm-2">
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="expertise" name="Branding" value="bs/ba">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>BS/BA</span>
+                                                                    </label>
+                                                                </div>
+                                                            <div class="col-sm-2"> 
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="expertise" name="Branding" value="ms/ma">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>MS/MA</span>
+                                                                    </label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="expertise" name="Branding" value=",ba">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>MBA</span>
+                                                                    </label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="expertise" name="Branding" value="phd">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>PHD</span>
+                                                                    </label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="expertise" name="Branding" value="none">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>None</span>
+                                                                    </label>
+                                                            </div>   
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        
                                                         <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School</span></span>
                                                             <div class="clearfix">
@@ -863,7 +932,8 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="input-group">
+
+                                                        <div class="input-group" id="school_year_holder" style="display: none;">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School Year</span></span>
                                                             <div class="clearfix">
                                                                 <select id="school_year" name="school_year" class="form-control">
@@ -1094,29 +1164,46 @@
 
     <script>
 
-var validator = $( "#input_form" ).validate({
-    rules: {
-        first_name: {required: true},
-        last_name: {required: true},
-        email: {required: true}
-    },
-    errorPlacement : function(error, element) {
-        if(element.attr("name") == "first_name"){
-            $('#first_name_holder').before(error);
-            // $('#first_name_holder').css("margin-bottom", "0px");
-        }else if (element.attr("name") == "last_name"){
-            $('#last_name_holder').before(error);
-        }else if (element.attr("name") == "email"){
-            $('#email_holder').before(error);
-        }
-        // $('.alert-danger').append(error)
-    }
-});
 
 
-        // $("#input_form").validate();
+        // Validation Functionality
+        var validator = $( "#input_form" ).validate({
+            rules: {
+                first_name: {required: true},
+                last_name: {required: true},
+                email: {required: true}
+            },
+            errorPlacement : function(error, element) {
+                if(element.attr("name") == "first_name"){
+                    $('#first_name_holder').before(error);
+                    // $('#first_name_holder').css("margin-bottom", "0px");
+                }else if (element.attr("name") == "last_name"){
+                    $('#last_name_holder').before(error);
+                }else if (element.attr("name") == "email"){
+                    $('#email_holder').before(error);
+                }
+                // $('.alert-danger').append(error)
+            }
+        });
+
+        $(document).ready(function(){
+            console.log('doc ready');
+            // School Affiliation inputs
+
+            school_affiliation = $('#school_affiliation');
+            school_affiliation.change(function(){
+                if(school_affiliation.val() == 'alumni'){
+                    $('#school_year_holder').show();
+                }else{
+                    $('#school_year_holder').hide();
+                };
+            });
+            
+        });
 
 
+
+        // Form submission
         $('#submit_button').click(function(){
             validator.form();
             first_name = $('#person_first_name').val();
