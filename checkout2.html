@@ -1364,13 +1364,13 @@
                         $('#scroll-top').click();
                     }
                 ).fail(function() {
-                    $('#error_message').prepend("Something went wrong.  Please try again");  //server error
+                    $('#error_message').html("Something went wrong.  Please try again");  //server error
                     $('#error_message').show();
                     $('#scroll-top').click();
                 });
             }else{
                 console.log('form is invalid');
-                    $('#error_message').prepend("Please fix the errors below.");  //form validation error
+                    $('#error_message').html("Please fix the errors below.");  //form validation error
                     $('#error_message').show();
                     $('#scroll-top').click();
             };
