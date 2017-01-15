@@ -865,7 +865,7 @@
                                                                     <option  value="Alumni">Alumni</option>
                                                                     <option  value="Faculty">Faculty</option>
                                                                     <option  value="Employee">Employee</option>
-                                                                    <option  value="Post Doc">Post Doc</option>
+                                                                    <option  value="Post Doca">Post Doc</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -874,7 +874,7 @@
                                                 <div class="row" id="school_holder" style="display: none;">
                                                     <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School</span></span>
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School *</span></span>
                                                             <div class="clearfix">
                                                                 <select id="school" name="school" class="form-control">
                                                                     <option  selected value>School of the highest degree selected</option>
@@ -1236,6 +1236,16 @@
                 // if school affiliation exists at all
                 if(school_affiliation.val()){
                     $('#school_holder').show();
+
+
+                    // add requirement validation to school name
+                    $( "#school" ).rules( "add", {
+                      required: true,
+                      messages: {
+                        required: "Required input",
+                        minlength: jQuery.validator.format("Please select a school.")
+                      }
+                    });
                 }else{
                     $('#school_year').val("");
                     $('#school').val("");
@@ -1245,7 +1255,7 @@
                     $('#school_holder').hide();
                 }
 
-                if(school_affiliation.val() == 'alumni'){
+                if(school_affiliation.val() == 'Alumni'){
                     
                     $('#school_year_holder').show();
                     $('#degrees').show();
@@ -1299,7 +1309,7 @@
             // define school and degrees
             if(school_name){
                 degrees = getDegrees();
-                if(school_affiliation.val() == 'alumni'){
+                if(school_affiliation.val() == 'Alumni'){
                     school = {
                         name: school_name,
                         year: school_year,
@@ -1323,38 +1333,48 @@
             roles = $("input[name=roles]:checked").map(function(){
                         return this.value;
                     }).get();
+            if($('#input_form').valid()){
+                console.log('form is valid');
+                $.post( "https://doorman-backend.herokuapp.com/people", {
+                        person: {
+                            first_name: first_name,
+                            last_name: last_name,
+                            title: title,
+                            industry: industry,
+                            email: email,
+                            second_email: second_email,
+                            phone_number: phone_number,
+                            remote_pic_url: $('#person_pic').val(),
+                            note: message,
+                            expertise_list: expertise_list,
+                            bio: bio
+                        },
+                        school: school,
+                        degrees: degrees,
+                        roles: roles,
+                        miscellaneous: {
+                            // message: message,  message does not go here because on the backend it is just a part of a user
+                            main_contact: main_contact
+                        }
+                    },  function(){
+                        console.log('in the success');
+                        $('#error_message').hide();
+                        $('#success_message').html("Thanks!  We'll be in touch!");
+                        $('#success_message').show();
+                        $('#scroll-top').click();
+                    }
+                ).fail(function() {
+                    $('#error_message').prepend("Something went wrong.  Please try again");  //server error
+                    $('#error_message').show();
+                    $('#scroll-top').click();
+                });
+            }else{
+                console.log('form is invalid');
+                    $('#error_message').prepend("Please fix the errors below.");  //form validation error
+                    $('#error_message').show();
+                    $('#scroll-top').click();
+            };
 
-            $.post( "https://doorman-backend.herokuapp.com/people", {
-                person: {
-                    first_name: first_name,
-                    last_name: last_name,
-                    title: title,
-                    industry: industry,
-                    email: email,
-                    second_email: second_email,
-                    phone_number: phone_number,
-                    remote_pic_url: $('#person_pic').val(),
-                    note: message,
-                    expertise_list: expertise_list,
-                    bio: bio
-                },
-                school: school,
-                degrees: degrees,
-                roles: roles,
-                miscellaneous: {
-                    // message: message,  message does not go here because on the backend it is just a part of a user
-                    main_contact: main_contact
-                }
-            }, function(){
-                $('#error_message').hide();
-                $('#success_message').html("Thanks!  We'll be in touch!");
-                $('#success_message').show();
-                $('#scroll-top').click();
-            }).fail(function() {
-                $('#error_message').prepend("Please fix the errors below.");
-                $('#error_message').show();
-                $('#scroll-top').click();
-              });
             // $('#input_form').submit();
         });
     </script>
