@@ -845,6 +845,31 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="school" name="school" class="form-control">
+                                                                    <option  selected value>Please select one</option>
+                                                                    <option  value="Harvard College">Harvard College</option>
+                                                                    <option  value="Harvard Business School">Harvard Business School</option>
+                                                                    <option  value="Harvard School of Dental Medicine">Harvard School of Dental Medicine</option>
+                                                                    <option  value="Harvard Divinity School">Harvard Divinity School</option>
+                                                                    <option  value="Graduate School of Design">Graduate School of Design</option>
+                                                                    <option  value="Harvard Graduate School of Education">Harvard Graduate School of Education</option>
+                                                                    <option  value="Graduate School of Arts & Sciences">Graduate School of Arts & Sciences</option>
+                                                                    <option  value="Harvard John A. Paulson School of Engineering and Applied Sciences">Harvard John A. Paulson School of Engineering and Applied Sciences</option>
+                                                                    <option  value="Harvard Kennedy School">Harvard Kennedy School</option>
+                                                                    <option  value="Harvard Law School">Harvard Law School</option>
+                                                                    <option  value="Harvard Medical School">Harvard Medical School</option>
+                                                                    <option  value="Harvard T.H. Chan School of Public Health">Harvard T.H. Chan School of Public Health</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" id="school_affiliation_holder" style="display: none;">
+
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Affilitation</span></span>
                                                             <div class="clearfix">
                                                                 <select id="school_affiliation" name="school_affiliation" class="form-control">
@@ -858,7 +883,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row" style="margin-bottom: 20px;">
+                                                <div class="row" id="degrees" style="margin-bottom: 20px; display: none;" >
                                                     <div class="col-xs-12">
                                                         <div class="row">
                                                             <div class="col-sm-12">
@@ -913,25 +938,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School</span></span>
-                                                            <div class="clearfix">
-                                                                <select id="school" name="school" class="form-control">
-                                                                    <option  value="Harvard College">Harvard College</option>
-                                                                    <option  value="Harvard Business School">Harvard Business School</option>
-                                                                    <option  value="Harvard School of Dental Medicine">Harvard School of Dental Medicine</option>
-                                                                    <option  value="Harvard Divinity School">Harvard Divinity School</option>
-                                                                    <option  value="Graduate School of Design">Graduate School of Design</option>
-                                                                    <option  value="Harvard Graduate School of Education">Harvard Graduate School of Education</option>
-                                                                    <option  value="Graduate School of Arts & Sciences">Graduate School of Arts & Sciences</option>
-                                                                    <option  value="Harvard John A. Paulson School of Engineering and Applied Sciences">Harvard John A. Paulson School of Engineering and Applied Sciences</option>
-                                                                    <option  value="Harvard Kennedy School">Harvard Kennedy School</option>
-                                                                    <option  value="Harvard Law School">Harvard Law School</option>
-                                                                    <option  value="Harvard Medical School">Harvard Medical School</option>
-                                                                    <option  value="Harvard T.H. Chan School of Public Health">Harvard T.H. Chan School of Public Health</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+                                                        <!-- school was here -->
 
                                                         <div class="input-group" id="school_year_holder" style="display: none;">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School Year</span></span>
@@ -1193,10 +1200,25 @@
             school_affiliation = $('#school_affiliation');
             school_affiliation.change(function(){
                 if(school_affiliation.val() == 'alumni'){
+                    
                     $('#school_year_holder').show();
+                    $('#degrees').show();
                 }else{
+                    
                     $('#school_year_holder').hide();
+                    $('#degrees').hide();
                 };
+            });
+
+            school = $('#school');
+            school.change(function(){
+                if(!school.val()){ //if school has no value
+                    $('#school_affiliation').val("");
+                    $('#school_year').val("");
+                    $('#school_affiliation_holder').hide();
+                }else{ //school has value
+                    $('#school_affiliation_holder').show();
+                }
             });
             
         });
