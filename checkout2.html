@@ -9,8 +9,11 @@
         <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+        <!-- CSS Dependancies -->
         <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/animate.css">
         <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/harvard/select2.css">
+        <!-- Theme CSS -->
         <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/style.css">
         <link rel="stylesheet" id="color-scheme" href="https://codeundercoverdev.github.io/input_form_for_guests/css/colors/green.css">
         
@@ -137,8 +140,8 @@
                                                         <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-fax"></span><span class="input-text">Industry</span></span>
                                                             <div class="clearfix">
-                                                                <select class="form-control" id="person_industry">
-                                                                    <option value="" selected>What industry are you in?</option>
+                                                                <select class="form-control industry_select2" multiple="multiple" id="person_industry">
+                                                                    <option value="" >What industry are you in?</option>
                                                                     <option value="Angel Investing">Angel Investing</option>
                                                                     <option value="B2B Business Products & Services">B2B Business Products & Services</option>
                                                                     <option value="B2B Technology">B2B Technology</option>
@@ -874,7 +877,7 @@
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School</span></span>
                                                             <div class="clearfix">
                                                                 <select id="school" name="school" class="form-control">
-                                                                    <option  selected value>Please select one</option>
+                                                                    <option  selected value>School of the highest degree selected</option>
                                                                     <option  value="Harvard College">Harvard College</option>
                                                                     <option  value="Harvard Business School">Harvard Business School</option>
                                                                     <option  value="Harvard School of Dental Medicine">Harvard School of Dental Medicine</option>
@@ -1175,6 +1178,7 @@
     <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/twitter/jquery.tweet.min.js"></script>
     <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/jquery.bootstrap-touchspin.min.js"></script>
     <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/skrollr.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/harvard/select2.js"></script>
     <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/main.js"></script>
 
     <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/linkedin_functions.js"></script>
@@ -1204,6 +1208,13 @@
         });
 
         $(document).ready(function(){
+
+
+            // Use select2 on select fields
+            $('.industry_select2').select2({
+                placeholder: "What industries are you in?"
+            });
+
             console.log('doc ready');
             // School Affiliation inputs
 
