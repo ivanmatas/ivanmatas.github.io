@@ -29,6 +29,7 @@
         $('#picture_frame').attr('src', data.pictureUrl);
         $('#person_remote_pic_url').val(data.pictureUrl);
         $('#person_title').val(data.headline);
+        $('#person_bio').val(data.summary);
         // $('#person_industry').val(data.industry);
         log_out();
     }
