@@ -1303,15 +1303,18 @@
                     school = {
                         name: school_name,
                         year: school_year,
+                        affiliation: school_affiliation.val()
                     };
                 }else{
                     school = {
-                        name: school_name
+                        name: school_name,
+                        affiliation: school_affiliation.val()
                     }
                 };
             }else{
                 school = null;
                 degrees = null;
+                affiliation = null;
             }
 
             main_contact = $('#main_contact').val();
