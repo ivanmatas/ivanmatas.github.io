@@ -908,7 +908,7 @@
                                                             <div class="col-sm-2">
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="bs/ba">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="BS/BA">
                                                                             <span class="custom-checkbox-icon"></span>
                                                                         </span><span>BS/BA</span>
                                                                     </label>
@@ -916,7 +916,7 @@
                                                             <div class="col-sm-2"> 
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="ms/ma">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="MS/MA">
                                                                             <span class="custom-checkbox-icon"></span>
                                                                         </span><span>MS/MA</span>
                                                                     </label>
@@ -924,7 +924,7 @@
                                                             <div class="col-sm-2">
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="mba">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="MBA">
                                                                             <span class="custom-checkbox-icon"></span>
                                                                         </span><span>MBA</span>
                                                                     </label>
@@ -932,9 +932,9 @@
                                                             <div class="col-sm-2">
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="phd">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="PhD">
                                                                             <span class="custom-checkbox-icon"></span>
-                                                                        </span><span>PHD</span>
+                                                                        </span><span>PhD</span>
                                                                     </label>
                                                             </div>
                                                             <div class="col-sm-2">
@@ -1216,7 +1216,20 @@
             });
 
             console.log('doc ready');
+
+
+
+
+            // get school affiliation checkbox values
+            getDegrees = function(){
+                 var allVals = [];
+                 $('input:checkbox:checked.degree_option').each(function() {
+                   allVals.push($(this).val());
+                 });
+                 return allVals;
+            }
             // School Affiliation inputs
+
 
             school_affiliation = $('#school_affiliation');
             school_affiliation.change(function(){
@@ -1271,6 +1284,7 @@
             phone_number = $('#person_phone_number').val();
             title = $('#person_title').val();
             industry = $('#person_industry').val();
+            bio = $('#person_bio').val();
             // expertise = $('#person_expertise').val();
             var expertise = $('input:checkbox:checked.expertise').map(function () {
                           return this.value;
@@ -1279,6 +1293,26 @@
             var expertise_list = expertise + "";
             school_name = $('#school').val();
             school_year = $('#school_year').val();
+
+
+
+            // define school and degrees
+            if(school_name){
+                degrees = getDegrees();
+                if(school_affiliation.val() == 'alumni'){
+                    school = {
+                        name: school_name,
+                        year: school_year,
+                    };
+                }else{
+                    school = {
+                        name: school_name
+                    }
+                };
+            }else{
+                school = null;
+                degrees = null;
+            }
 
             main_contact = $('#main_contact').val();
             message = $('#comment').val();
@@ -1298,12 +1332,11 @@
                     phone_number: phone_number,
                     remote_pic_url: $('#person_pic').val(),
                     note: message,
-                    expertise_list: expertise_list
+                    expertise_list: expertise_list,
+                    bio: bio
                 },
-                school: {
-                    name: school_name,
-                    year: school_year
-                },
+                school: school,
+                degrees: degrees,
                 roles: roles,
                 miscellaneous: {
                     // message: message,  message does not go here because on the backend it is just a part of a user
