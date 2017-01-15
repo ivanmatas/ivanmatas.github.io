@@ -851,7 +851,24 @@
                                                 </div>
                                                 <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
                                                 <h3 class="title-border custom mb30">If you attended Harvard, please complete the following:</h3>
-                                                <div class="row">
+                                                <div class="row" id="school_affiliation_holder" >
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Affilitation</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="school_affiliation" name="school_affiliation" class="form-control">
+                                                                    <option selected value>None</option>
+                                                                    <!-- <option disabled selected value>What's your connection to Harvard?</option> -->
+                                                                    <option  value="alumni">Alumni</option>
+                                                                    <option  value="faculty">Faculty</option>
+                                                                    <option  value="employee">Employee</option>
+                                                                    <option  value="post_doc">Post Doc</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" id="school_holder" style="display: none;">
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School</span></span>
@@ -875,23 +892,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row" id="school_affiliation_holder" style="display: none;">
-
-                                                    <div class="col-md-6">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Affilitation</span></span>
-                                                            <div class="clearfix">
-                                                                <select id="school_affiliation" name="school_affiliation" class="form-control">
-                                                                    <option disabled selected value>What's your connection to Harvard?</option>
-                                                                    <option  value="alumni">Alumni</option>
-                                                                    <option  value="faculty">Faculty</option>
-                                                                    <option  value="employee">Employee</option>
-                                                                    <option  value="post_doc">Post Doc</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="row" id="degrees" style="margin-bottom: 20px; display: none;" >
                                                     <div class="col-xs-12">
                                                         <div class="row">
@@ -904,7 +905,7 @@
                                                             <div class="col-sm-2">
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="expertise" name="Branding" value="bs/ba">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="bs/ba">
                                                                             <span class="custom-checkbox-icon"></span>
                                                                         </span><span>BS/BA</span>
                                                                     </label>
@@ -912,7 +913,7 @@
                                                             <div class="col-sm-2"> 
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="expertise" name="Branding" value="ms/ma">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="ms/ma">
                                                                             <span class="custom-checkbox-icon"></span>
                                                                         </span><span>MS/MA</span>
                                                                     </label>
@@ -920,7 +921,7 @@
                                                             <div class="col-sm-2">
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="expertise" name="Branding" value=",ba">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="mba">
                                                                             <span class="custom-checkbox-icon"></span>
                                                                         </span><span>MBA</span>
                                                                     </label>
@@ -928,7 +929,7 @@
                                                             <div class="col-sm-2">
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="expertise" name="Branding" value="phd">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="phd">
                                                                             <span class="custom-checkbox-icon"></span>
                                                                         </span><span>PHD</span>
                                                                     </label>
@@ -936,7 +937,7 @@
                                                             <div class="col-sm-2">
                                                                     <label class="checkbox-inline custom-checkbox-wrapper">
                                                                         <span class="custom-checkbox-container">
-                                                                            <input type="checkbox" class="expertise" name="Branding" value="none">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="none">
                                                                             <span class="custom-checkbox-icon"></span>
                                                                         </span><span>None</span>
                                                                     </label>
@@ -1208,6 +1209,18 @@
 
             school_affiliation = $('#school_affiliation');
             school_affiliation.change(function(){
+                // if school affiliation exists at all
+                if(school_affiliation.val()){
+                    $('#school_holder').show();
+                }else{
+                    $('#school_year').val("");
+                    $('#school').val("");
+                    $('#school_year_holder').hide();
+                    $('#degrees').hide();
+                    $('.degree_option').removeAttr('checked');
+                    $('#school_holder').hide();
+                }
+
                 if(school_affiliation.val() == 'alumni'){
                     
                     $('#school_year_holder').show();
@@ -1216,19 +1229,22 @@
                     
                     $('#school_year_holder').hide();
                     $('#degrees').hide();
+                    $('.degree_option').removeAttr('checked');
+                    $('#school_year').val("");
+                    $('#school').val("");
                 };
             });
 
-            school = $('#school');
-            school.change(function(){
-                if(!school.val()){ //if school has no value
-                    $('#school_affiliation').val("");
-                    $('#school_year').val("");
-                    $('#school_affiliation_holder').hide();
-                }else{ //school has value
-                    $('#school_affiliation_holder').show();
-                }
-            });
+            // school = $('#school');
+            // school.change(function(){
+            //     if(!school.val()){ //if school has no value
+            //         $('#school_affiliation').val("");
+            //         $('#school_year').val("");
+            //         $('#school_affiliation_holder').hide();
+            //     }else{ //school has value
+            //         $('#school_affiliation_holder').show();
+            //     }
+            // });
             
         });
 
