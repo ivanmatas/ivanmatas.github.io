@@ -1298,7 +1298,7 @@
             second_email = $('#person_second_email').val();
             phone_number = $('#person_phone_number').val();
             title = $('#person_title').val();
-            industry = $('#person_industry').val();
+            
             bio = $('#person_bio').val();
             // expertise = $('#person_expertise').val();
             var expertise = $('input:checkbox:checked.expertise').map(function () {
@@ -1306,6 +1306,9 @@
                         }).get();
 
             var expertise_list = expertise + "";
+            industry = $('#person_industry').val();
+            industry_list = industry + "";
+
             school_name = $('#school').val();
             school_year = $('#school_year').val();
 
@@ -1345,13 +1348,13 @@
                             first_name: first_name,
                             last_name: last_name,
                             title: title,
-                            industry: industry,
                             email: email,
                             second_email: second_email,
                             phone_number: phone_number,
                             remote_pic_url: $('#person_pic').val(),
                             note: message,
                             expertise_list: expertise_list,
+                            industry_list: industry_list,
                             bio: bio
                         },
                         school: school,
