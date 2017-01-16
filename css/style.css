@@ -16050,3 +16050,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     }
 }
 
+/*change jQuery select2 border color for selects*/
+.select2-container--default .select2-selection--multiple{
+    border: 1px solid #eaeaea;
+}
