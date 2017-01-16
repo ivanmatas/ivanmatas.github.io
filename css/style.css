@@ -16054,3 +16054,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
 .select2-container--default .select2-selection--multiple{
     border: 1px solid #eaeaea;
 }
+
+/*margin for role checkboxes*/
+.checkbox_margin{
+    margin-top: 0px !important;
+    margin-bottom: 5px !important;
+}
