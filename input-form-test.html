@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Harvard Innovation Labs | Tell us about you</title>
+        <meta name="description" content="Want to get involved at the i-labs?  Tell us a little bit about you and let's connect!">
+
+        <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- CSS Dependancies -->
+        <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/animate.css">
+        <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/harvard/select2.css">
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="https://codeundercoverdev.github.io/input_form_for_guests/css/style.css">
+        <link rel="stylesheet" id="color-scheme" href="https://codeundercoverdev.github.io/input_form_for_guests/css/colors/green.css">
+        
+        <!-- Favicon and Apple Icons -->
+        <link rel="icon" type="image/png" href="https://codeundercoverdev.github.io/input_form_for_guests/media/logo_favicon.png">
+       <!--  <link rel="apple-touch-icon" sizes="57x57" href="https://codeundercoverdev.github.io/input_form_for_guests/images/icons/faviconx57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://codeundercoverdev.github.io/input_form_for_guests/images/icons/faviconx72.png"> -->
+        
+        <!-- Modernizr -->
+        <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/modernizr.js"></script>
+
+        <!--- jQuery -->
+        <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/jquery.min.js"></script>
+        <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/harvard/jquery.validate.js"></script>
+
+        <!-- Queryloader -->
+        <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/queryloader2.min.js"></script>
+
+        <script type="text/javascript" src="//platform.linkedin.com/in.js">
+            api_key:   77awl1kp5d4jh9
+        </script>
+	    
+    </head>
+    <body>
+    <div class="boss-loader-overlay"></div><!-- End .boss-loader-overlay -->
+    <div id="wrapper">
+        <header id="header" role="banner">
+            <div class="collapse navbar-white" id="header-search-form">
+                <div class="container">
+                    <form class="navbar-form animated fadeInDown"  role="search">
+                        <input type="search" id="s" name="s" class="form-control" placeholder="Search in here...">
+                        <button type="submit" class="btn-circle" title="Search"><i class="fa fa-search"></i></button>
+                    </form>
+                </div><!-- End .container -->
+            </div><!-- End #header-search-form -->
+            <nav class="navbar navbar-white animated-dropdown ttb-dropdown" role="navigation">
+                
+   
+                
+                <div class="navbar-inner sticky-menu">
+                    <div class="container">
+                        <div class="navbar-header">
+
+
+                            <a class="navbar-brand text-uppercase" href="https://codeundercoverdev.github.io/input_form_for_guests/index.html" title="Boss - Multipurpose Premium Html5 Template">
+                                <img src="https://codeundercoverdev.github.io/input_form_for_guests/media/ilabs_logo.png" style="width: 60%; margin-top: -10px;">
+                            </a>
+
+
+
+                            
+                        </div><!-- End .navbar-header -->
+
+                        <div class="collapse navbar-collapse" id="main-navbar-container">
+                            <ul class="nav navbar-nav">
+ 
+
+                            </ul>
+                            
+             
+   
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container -->
+                </div><!-- End .navbar-inner -->
+            </nav>
+        </header><!-- End #header -->
+    
+        <div id="content" role="main">
+
+
+            <div class="checkout">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-md-3 col-md-push-9" style="margin-top: 50px;">
+                            <div class="checkout-progress-box">
+                                <img src="" id="picture_frame" style="width: 100%; display: none;" />
+                                <input type="hidden" value="" id="person_pic" />
+             
+                            </div><!-- End .checkout-progress-box -->
+                        </div><!-- End .col-md-3 -->
+                        <div class="col-md-9 col-md-pull-3">
+                            <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-border-tb">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h2 class="panel-title" style="padding-left: inherit;">
+                                            <div class="alert alert-success" id="success_message" style="display: none; margin-top: 10px;"></div>
+                                            <div class="alert alert-danger" id="error_message" style="display: none; margin-top: 10px;"></div>
+                                            <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Thank you for supporting the Harvard Innovation Labs. <br /> Please create your profile below. &nbsp;<br />
+                                               
+                                            </a>
+                                            
+                                        </h2>
+                                    </div><!-- End .panel-heading -->
+
+
+                                    <div id="collapseTwo" class="panel-collapse " role="tabpanel" aria-labelledby="headingTwo">
+
+                                        <div class="panel-body" style="padding-bottom: 0px; padding-top: 16px;">
+                                            <h3 style="margin-bottom: 19px;">
+                                                Add your basic information and photo from LinkedIn:&nbsp;&nbsp;&nbsp;
+                                                <button class="btn btn-custom btn-margin-small-screen" id="linkedin" style="margin-bottom: 3px;">Import from LinkedIn</button>
+                                            </h3>
+                                            <form action="http://localhost:3000/people" id="input_form">
+                    
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                
+                                                        <h3 class="title-border custom mb30">Personal Information</h3>
+                                                        <div class="input-group" id="first_name_holder">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">First Name *</span></span>
+                                                            <input type="text" class="form-control"  id="person_first_name" name="first_name">
+                                                        </div><!-- End .input-group -->
+                                                        <div class="input-group" id="last_name_holder">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-user"></span><span class="input-text">Last Name *</span></span>
+                                                            <input type="text" class="form-control"  id="person_last_name" name="last_name">
+                                                        </div><!-- End .input-group -->
+
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-phone"></span><span class="input-text">Title</span></span>
+                                                            <input type="text" class="form-control"  id="person_title">
+                                                        </div><!-- End .input-group -->
+                                                        
+
+
+
+
+                                                    </div><!-- End .col-md-6 -->
+
+                                                    <div class="mb30 visible-xs visible-sm"></div><!-- space -->
+                                        
+                                                    <div class="col-md-6">
+                                                        <h3 class="title-border custom mb30">Contact Information</h3>
+                                                        
+
+                                                        <div class="input-group" id="email_holder">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-email"></span><span class="input-text">Email *</span></span>
+                                                            <input type="email" class="form-control"  id="person_email" name="email">
+                                                        </div><!-- End .input-group -->
+
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-city"></span><span class="input-text">Secondary email</span></span>
+                                                            <input type="text" class="form-control" placeholder="Do you have another email address?" id="person_second_email">
+                                                        </div><!-- End .input-group -->
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-postcode"></span><span class="input-text">Phone number</span></span>
+                                                            <input type="text" class="form-control"  id="person_phone_number">
+                                                        </div><!-- End .input-group -->
+
+                                                    </div><!-- End .col-md-6 -->
+                                                </div><!-- End .row -->
+                                                <!-- Bio -->
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                                <label for="person_bio" class="input-desc">Bio</label>
+                                                                <textarea id="person_bio" class="form-control" rows="6" id="comment" name="person_bio"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- industry and expertise -->
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
+                                                <h3 class="title-border custom mb30">Industry and Expertise</h3>
+
+                                                <div class="input-group">
+                                                    <span class="input-group-addon min-width"><span class="input-icon input-icon-fax"></span><span class="input-text">Industry</span></span>
+                                                    <div class="clearfix">
+                                                        <select class="form-control industry_select2" multiple="multiple" id="person_industry">
+                                                            <option value="" >What industry are you in?</option>
+                                                            <option value="Angel Investing">Angel Investing</option>
+                                                            <option value="B2B Business Products & Services">B2B Business Products & Services</option>
+                                                            <option value="B2B Technology">B2B Technology</option>
+                                                            <option value="Consumer Health and Wellness">Consumer Health and Wellness</option>
+                                                            <option value="Consumer Products & Services">Consumer Products & Services</option>
+                                                            <option value="Cultural Enterprise">Cultural Enterprise</option>
+                                                            <option value="E-Commerce/Retail">E-Commerce/Retail</option>
+                                                            <option value="Energy and Natural Resources">Energy and Natural Resources</option>
+                                                            <option value="Financial Services & Real Estate">Financial Services & Real Estate</option>
+                                                            <option value="General/Other">General/Other</option>
+                                                            <option value="Government">Government</option>
+                                                            <option value="Life Sciences/Medical Devices">Life Sciences/Medical Devices</option>
+                                                            <option value="Media and Communications">Media and Communications</option>
+                                                            <option value="Social Enterprise/Education">Social Enterprise/Education</option>
+                                                            <option value="Venture Investing">Venture Investing</option>
+                                                        </select>
+                                                    </div>
+                                                </div><!-- End .input-group -->
+
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <h5>Expertise</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    
+                                                    <div class="col-md-4">
+                                                        <h6>Strategy and Business</h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Branding" value="Branding">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Branding</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Business Development" value="Business Development">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Business Development</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Business Modeling" value="Business Modeling">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Business Modeling</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Business Planning" value="Business Planning">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Business Planning</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Customer Development" value="Customer Development">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Customer Development</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="PR & Communications" value="PR & Communications">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>PR & Communications</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Marketing" value="Marketing">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Marketing</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Operations" value="Operations">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Operations</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <br><h6>Sales</h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Sales" value="Sales">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Sales</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Distribution Channels" value="Distribution Channels">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Distribution Channels</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Manufacturing/Distribution" value="Manufacturing/Distribution">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Manufacturing/Distribution</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <br><h6>Investment and Legal</h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Deal Negotiation" value="Deal Negotiation">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Deal Negotiation</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Term Sheets" value="Term Sheets">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Term Sheets</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Fundraising" value="Fundraising">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Fundraising</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Investment" value="Investment">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Investment</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Legal" value="Legal">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Legal</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Venture Capital" value="Venture Capital">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Venture Capital</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <h6>Technology / Development</h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Big Data" value="Big Data">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Big Data</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Cloud Technologies" value="Cloud Technologies">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Cloud Technologies</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Coding & Software Development" value="Coding & Software Development">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Coding & Software Development</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Cybersecurity" value="Cybersecurity">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Cybersecurity</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Enterprise Software" value="Enterprise Software">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Enterprise Software</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Gaming and Consumer Software" value="Gaming and Consumer Software">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Gaming and Consumer Software</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Hardware" value="Hardware">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Hardware</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Internet and Web" value="Internet and Web">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Internet and Web</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Internet of Things" value="Internet of Things">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Internet of Things</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Mobile" value="Mobile">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Mobile</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Online Commerce" value="Online Commerce">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Online Commerce</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Robotics" value="Robotics">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Robotics</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="SaaS" value="SaaS">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>SaaS</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <br><h6>Organizational Design</h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Human Resources" value="Human Resources">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Human Resources</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Recruiting" value="Recruiting">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Recruiting</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Team Building" value="Team Building">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Team Building</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Organizational Design" value="Organization Design">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Organizational Design</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <h6>Design and Product Development</h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Ideating" value="Ideating">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Ideating</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Product Design" value="Product Design">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Product Design</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Product Development" value="Product Development">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Product Development</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="User Experience" value="User Experience">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>User Experience</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="User Interface Design" value="User Interface Design">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>User Interface Design</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="User Testing" value="User Testing">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>User Testing</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        
+                                                        <br><h6>Startup Expertise</h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Bootstrapping" value="Bootstrapping">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Bootstrapping</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Exiting" value="Exiting">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Exiting</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="First Time Entrepreneurs" value="First Time Entrepreneurs">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>First Time Entrepreneurs</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+
+                                                        
+
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Intellectual Property" value="Intellectual Property">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Intellectual Property</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                        <input type="checkbox" class="expertise" name="Launching" value="Launching">
+                                                                        <span class="custom-checkbox-icon"></span>
+                                                                    </span><span>Launching</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Leadership" value="Leadership">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Leadership</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Management" value="Management">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Management</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Networking" value="Networking">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Networking</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Partnering" value="Partnering">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Partnering</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Pitching" value="Pitching">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Pitching</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <br><h6>Other</h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Healthcare Systems" value="Healthcare Systems">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Healthcare Systems</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Travel and Tourism" value="Travel and Tourism">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Travel and Tourism</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="IT" value="IT">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>IT</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                    <span class="custom-checkbox-container">
+                                                                    <input type="checkbox" class="expertise" name="Government" value="Government">
+                                                                    <span class="custom-checkbox-icon"></span>
+                                                                </span><span>Government</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                        
+                                     
+                                                    </div>
+                                                </div>
+                                                <!-- Harvard School Information -->
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
+                                                <h3 class="title-border custom mb30">How would you like to get involved with the Harvard Innovation Labs?</h3>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="eir">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Entrepreneur in Residence
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="lir">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Lawyer in Residence
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="fir">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Funder in Residence
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="speaker">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Speaker
+                                                          </label>
+                                                        </div> 
+
+
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="adviser">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Adviser
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="mentor">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Mentor
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="judge">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           President's Challenge Judge
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="visiting_practitioner">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Visiting Practitioner
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="corporate_partner">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Corporate Partner
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="roles" value="other">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Other / Not Sure
+                                                          </label>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
+                                                <h3 class="title-border custom mb30">If you are affiliated with Harvard, please complete the following:</h3>
+                                                <div class="row" id="school_affiliation_holder" >
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Affiliation</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="school_affiliation" name="school_affiliation" class="form-control">
+                                                                    <option selected value>None</option>
+                                                                    <!-- <option disabled selected value>What's your connection to Harvard?</option> -->
+                                                                    <option  value="Alumni">Alumni</option>
+                                                                    <option  value="Faculty">Faculty</option>
+                                                                    <option  value="Employee">Employee</option>
+                                                                    <option  value="Post Doca">Post Doc</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" id="school_holder" style="display: none;">
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School *</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="school" name="school" class="form-control">
+                                                                    <option  selected value>School of the highest degree completed</option>
+                                                                    <option  value="Harvard College">Harvard College</option>
+                                                                    <option  value="Harvard Business School">Harvard Business School</option>
+                                                                    <option  value="Harvard School of Dental Medicine">Harvard School of Dental Medicine</option>
+                                                                    <option  value="Harvard Divinity School">Harvard Divinity School</option>
+                                                                    <option  value="Graduate School of Design">Graduate School of Design</option>
+                                                                    <option  value="Harvard Graduate School of Education">Harvard Graduate School of Education</option>
+                                                                    <option  value="Graduate School of Arts & Sciences">Graduate School of Arts & Sciences</option>
+                                                                    <option  value="Harvard John A. Paulson School of Engineering and Applied Sciences">Harvard John A. Paulson School of Engineering and Applied Sciences</option>
+                                                                    <option  value="Harvard Kennedy School">Harvard Kennedy School</option>
+                                                                    <option  value="Harvard Law School">Harvard Law School</option>
+                                                                    <option  value="Harvard Medical School">Harvard Medical School</option>
+                                                                    <option  value="Harvard T.H. Chan School of Public Health">Harvard T.H. Chan School of Public Health</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="row" id="degrees" style="margin-bottom: 20px; display: none;" >
+                                                    <div class="col-xs-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <h5>Degrees</h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+
+                                                            <div class="col-sm-2">
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="BS/BA">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>BS/BA</span>
+                                                                    </label>
+                                                                </div>
+                                                            <div class="col-sm-2"> 
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="MS/MA">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>MS/MA</span>
+                                                                    </label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="MBA">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>MBA</span>
+                                                                    </label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="PhD">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>PhD</span>
+                                                                    </label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                    <label class="checkbox-inline custom-checkbox-wrapper">
+                                                                        <span class="custom-checkbox-container">
+                                                                            <input type="checkbox" class="degree_option" name="degree_option" value="none">
+                                                                            <span class="custom-checkbox-icon"></span>
+                                                                        </span><span>None</span>
+                                                                    </label>
+                                                            </div>   
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        
+                                                        <!-- school was here -->
+
+                                                        <div class="input-group" id="school_year_holder" style="display: none;">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">School Year</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="school_year" name="school_year" class="form-control">
+                                                                    <option disabled selected value>Select Your Year</option>
+                                                                    <option value="2020">2020</option>
+                                                                    <option value="2019">2019</option>
+                                                                    <option value="2018">2018</option>
+                                                                    <option value="2017">2017</option>
+                                                                    <option value="2016">2016</option>
+                                                                    <option value="2015">2015</option>
+                                                                    <option value="2014">2014</option>
+                                                                    <option value="2013">2013</option>
+                                                                    <option value="2012">2012</option>
+                                                                    <option value="2011">2011</option>
+                                                                    <option value="2010">2010</option>
+                                                                    <option value="2009">2009</option>
+                                                                    <option value="2008">2008</option>                                             
+                                                                    <option value="2007">2007</option>
+                                                                    <option value="2006">2006</option>
+                                                                    <option value="2005">2005</option>
+                                                                    <option value="2004">2004</option>
+                                                                    <option value="2003">2003</option>
+                                                                    <option value="2002">2002</option>
+                                                                    <option value="2001">2001</option>
+                                                                    <option value="2000">2000</option>
+                                                                    <option value="1999">1999</option>
+                                                                    <option value="1998">1998</option>
+                                                                    <option value="1997">1997</option>
+                                                                    <option value="1996">1996</option>
+                                                                    <option value="1995">1995</option>
+                                                                    <option value="1994">1994</option>
+                                                                    <option value="1993">1993</option>
+                                                                    <option value="1992">1992</option>
+                                                                    <option value="1991">1991</option>
+                                                                    <option value="1990">1990</option>
+                                                                    <option value="1989">1989</option>
+                                                                    <option value="1988">1988</option>
+                                                                    <option value="1987">1987</option>
+                                                                    <option value="1986">1986</option>
+                                                                    <option value="1985">1985</option>
+                                                                    <option value="1984">1984</option>
+                                                                    <option value="1983">1983</option>
+                                                                    <option value="1982">1982</option>
+                                                                    <option value="1981">1981</option>
+                                                                    <option value="1980">1980</option>
+                                                                    <option value="1979">1979</option>
+                                                                    <option value="1978">1978</option>
+                                                                    <option value="1977">1977</option>
+                                                                    <option value="1976">1976</option>
+                                                                    <option value="1975">1975</option>
+                                                                    <option value="1974">1974</option>
+                                                                    <option value="1973">1973</option>
+                                                                    <option value="1972">1972</option>
+                                                                    <option value="1971">1971</option>
+                                                                    <option value="1970">1970</option>
+                                                                    <option value="1969">1969</option>
+                                                                    <option value="1968">1968</option>
+                                                                    <option value="1967">1967</option>
+                                                                    <option value="1966">1966</option>
+                                                                    <option value="1965">1965</option>
+                                                                    <option value="1964">1964</option>
+                                                                    <option value="1963">1963</option>
+                                                                    <option value="1962">1962</option>
+                                                                    <option value="1961">1961</option>
+                                                                    <option value="1960">1960</option>
+                                                                    <option value="1959">1959</option>
+                                                                    <option value="1958">1958</option>
+                                                                    <option value="1957">1957</option>
+                                                                    <option value="1956">1956</option>
+                                                                    <option value="1955">1955</option>
+                                                                    <option value="1954">1954</option>
+                                                                    <option value="1953">1953</option>
+                                                                    <option value="1952">1952</option>
+                                                                    <option value="1951">1951</option>
+                                                                    <option value="1950">1950</option>
+                                                                    <option value="1949">1949</option>
+                                                                    <option value="1948">1948</option>
+                                                                    <option value="1947">1947</option>
+                                                                    <option value="1946">1946</option>
+                                                                    <option value="1945">1945</option>
+                                                                    <option value="1944">1944</option>
+                                                                    <option value="1943">1943</option>
+                                                                    <option value="1942">1942</option>
+                                                                    <option value="1941">1941</option>
+                                                                    <option value="1940">1940</option>
+                                                                    <option value="1939">1939</option>
+                                                                    <option value="1938">1938</option>
+                                                                    <option value="1937">1937</option>
+                                                                    <option value="1936">1936</option>
+                                                                    <option value="1935">1935</option>
+                                                                    <option value="1934">1934</option>
+                                                                    <option value="1933">1933</option>
+                                                                    <option value="1932">1932</option>
+                                                                    <option value="1931">1931</option>
+                                                                    <option value="1930">1930</option>
+                                                                    <option value="1929">1929</option>
+                                                                    <option value="1928">1928</option>
+                                                                    <option value="1927">1927</option>
+                                                                    <option value="1926">1926</option>
+                                                                    <option value="1925">1925</option>
+                                                                    <option value="1924">1924</option>
+                                                                    <option value="1923">1923</option>
+                                                                    <option value="1922">1922</option>
+                                                                    <option value="1921">1921</option>
+                                                                    <option value="1920">1920</option>
+                                                                    <option value="1919">1919</option>
+                                                                    <option value="1918">1918</option>
+                                                                    <option value="1917">1917</option>
+                                                                    <option value="1916">1916</option>
+                                                                    <option value="1915">1915</option>
+                                                                    <option value="1914">1914</option>
+                                                                    <option value="1913">1913</option>
+                                                                    <option value="1912">1912</option>
+                                                                    <option value="1911">1911</option>
+                                                                    <option value="1910">1910</option>
+                                                                    <option value="1909">1909</option>
+                                                                    <option value="1908">1908</option>
+                                                                    <option value="1907">1907</option>
+                                                                    <option value="1906">1906</option>
+                                                                    <option value="1905">1905</option>
+                                                                    <option value="1904">1904</option>
+                                                                    <option value="1903">1903</option>
+                                                                    <option value="1902">1902</option>
+                                                                    <option value="1901">1901</option>
+                                                                    <option value="1900">1900</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
+                                                <h3 class="title-border custom mb30">Who introduced you to the Harvard Innovation Labs?</h3>
+                                                <div class="row">
+                                                    <div class="col-md-7 col-lg-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Main Contact</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="main_contact" name="main_contact" class="form-control">
+                                                                    <option disabled selected value>Who is your main point of contact?</option>
+                                                                    <option  value="">No one</option>
+                                                                    <option  value="86">Alice Ly</option>
+                                                                    <option  value="85">Chris Colbert</option>
+                                                                    <option  value="94">Jess Wilkinson</option>
+                                                                    <option  value="84">Jocelyn Krauss</option>
+                                                                    <option  value="93">Jodi Goldstein</option>
+                                                                    <option  value="87">Josh Nelson</option>
+                                                                    <option  value="83">Lara Zimmerman</option>
+                                                                    <option  value="92">Madeline Meehan</option>
+                                                                    <option  value="90">Matthew Guidarelli</option>
+                                                                    <option  value="88">Maureen Schrader</option>
+                                                                    <option  value="91">Neal Doyle</option>
+                                                                    <option  value="95">Philip Greenwald</option>
+                                                                    <option  value="89">Sheryl Reilly</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="message" class="input-desc">Comments</label>
+                                                            <textarea class="form-control" rows="6" id="comment" name="message" placeholder="Is there anything else you’d like to tell us about yourself?"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form> 
+
+                                        </div><!-- End .panel-body -->
+                                    </div><!-- End .panel-collapse -->
+                                </div><!-- End .panel -->
+
+
+                            </div><!-- End .panel-group -->
+                            <button class="btn btn-custom" style="width: 100%;" id="submit_button">Thank you for completing this information. &nbsp;  SUBMIT</button>
+                        </div><!-- End .col-md-9 -->
+
+                    </div><!-- End .row -->
+
+                </div><!-- End .container -->
+
+            </div><!-- End .checkout -->
+
+        
+        
+
+        </div><!-- End #content -->
+
+        <footer id="footer" role="contentinfo">
+
+            <div id="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-push-6">
+
+                        </div><!-- End .col-md-6 -->
+                        <div class="col-md-6 col-md-pull-6">
+                            <p class="copyright">Harvard Innovation Labs.  All rights reserved. &copy; <a href="https://i-lab.harvard.edu">i-lab.harvard.edu</a></p>
+                        </div><!-- End .col-md-6 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End #footer-bottom -->
+        </footer><!-- End #footer -->
+
+    </div><!-- End #wrapper -->
+    <a href="#top" id="scroll-top" title="Back to Top"><i class="fa fa-angle-up"></i></a>
+	<!-- END -->
+
+    <!-- Smoothscroll -->
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/smoothscroll.js"></script>
+
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/bootstrap.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/jquery.hoverIntent.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/jquery.nicescroll.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/waypoints.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/waypoints-sticky.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/jquery.debouncedresize.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/retina.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/owl.carousel.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/jflickrfeed.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/jquery.selectbox.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/twitter/jquery.tweet.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/skrollr.min.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/harvard/select2.js"></script>
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/main.js"></script>
+
+    <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/linkedin_functions.js"></script>
+
+    <script>
+
+
+
+        // Validation Functionality
+        var validator = $( "#input_form" ).validate({
+            rules: {
+                first_name: {required: true},
+                last_name: {required: true},
+                email: {required: true}
+            },
+            errorPlacement : function(error, element) {
+                if(element.attr("name") == "first_name"){
+                    $('#first_name_holder').before(error);
+                    // $('#first_name_holder').css("margin-bottom", "0px");
+                }else if (element.attr("name") == "last_name"){
+                    $('#last_name_holder').before(error);
+                }else if (element.attr("name") == "email"){
+                    $('#email_holder').before(error);
+                }
+                // $('.alert-danger').append(error)
+            }
+        });
+
+        $(document).ready(function(){
+
+
+            // Use select2 on select fields
+            $('.industry_select2').select2({
+                placeholder: "What industries are you in?"
+            });
+
+            console.log('doc ready');
+
+
+
+
+            // get school affiliation checkbox values
+            getDegrees = function(){
+                 var allVals = [];
+                 $('input:checkbox:checked.degree_option').each(function() {
+                   allVals.push($(this).val());
+                 });
+                 return allVals;
+            }
+            // School Affiliation inputs
+
+
+            school_affiliation = $('#school_affiliation');
+            school_affiliation.change(function(){
+                // if school affiliation exists at all
+                if(school_affiliation.val()){
+                    $('#school_holder').show();
+
+
+                    // add requirement validation to school name
+                    $( "#school" ).rules( "add", {
+                      required: true,
+                      messages: {
+                        required: "Required input",
+                        minlength: jQuery.validator.format("Please select a school.")
+                      }
+                    });
+                }else{
+                    $('#school_year').val("");
+                    $('#school').val("");
+                    $('#school_year_holder').hide();
+                    $('#degrees').hide();
+                    $('.degree_option').removeAttr('checked');
+                    $('#school_holder').hide();
+                }
+
+                if(school_affiliation.val() == 'Alumni'){
+                    
+                    $('#school_year_holder').show();
+                    $('#degrees').show();
+                }else{
+                    
+                    $('#school_year_holder').hide();
+                    $('#degrees').hide();
+                    $('.degree_option').removeAttr('checked');
+                    $('#school_year').val("");
+                    $('#school').val("");
+                };
+            });
+
+            // school = $('#school');
+            // school.change(function(){
+            //     if(!school.val()){ //if school has no value
+            //         $('#school_affiliation').val("");
+            //         $('#school_year').val("");
+            //         $('#school_affiliation_holder').hide();
+            //     }else{ //school has value
+            //         $('#school_affiliation_holder').show();
+            //     }
+            // });
+            
+        });
+
+
+
+        // Form submission
+        $('#submit_button').click(function(){
+            validator.form();
+            first_name = $('#person_first_name').val();
+            last_name = $('#person_last_name').val();
+            email = $('#person_email').val();
+            second_email = $('#person_second_email').val();
+            phone_number = $('#person_phone_number').val();
+            title = $('#person_title').val();
+            
+            bio = $('#person_bio').val();
+            // expertise = $('#person_expertise').val();
+            var expertise = $('input:checkbox:checked.expertise').map(function () {
+                          return this.value;
+                        }).get();
+
+            var expertise_list = expertise + "";
+            industry = $('#person_industry').val();
+            industry_list = industry + "";
+
+            school_name = $('#school').val();
+            school_year = $('#school_year').val();
+
+
+
+            // define school and degrees
+            if(school_name){
+                degrees = getDegrees();
+                if(school_affiliation.val() == 'Alumni'){
+                    school = {
+                        name: school_name,
+                        year: school_year,
+                        affiliation: school_affiliation.val()
+                    };
+                }else{
+                    school = {
+                        name: school_name,
+                        affiliation: school_affiliation.val()
+                    }
+                };
+            }else{
+                school = null;
+                degrees = null;
+                affiliation = null;
+            }
+
+            main_contact = $('#main_contact').val();
+            message = $('#comment').val();
+
+            roles = $("input[name=roles]:checked").map(function(){
+                        return this.value;
+                    }).get();
+            if($('#input_form').valid()){
+                console.log('form is valid');
+                $.post( "https://doorman-backend.herokuapp.com/people", {
+                        person: {
+                            first_name: first_name,
+                            last_name: last_name,
+                            title: title,
+                            email: email,
+                            second_email: second_email,
+                            phone_number: phone_number,
+                            remote_pic_url: $('#person_pic').val(),
+                            note: message,
+                            expertise_list: expertise_list,
+                            industry_list: industry_list,
+                            bio: bio
+                        },
+                        school: school,
+                        degrees: degrees,
+                        roles: roles,
+                        miscellaneous: {
+                            // message: message,  message does not go here because on the backend it is just a part of a user
+                            main_contact: main_contact
+                        }
+                    },  function(){
+                        console.log('in the success');
+                        $('#error_message').hide();
+                        $('#success_message').html("Thanks!  We'll be in touch!");
+                        $('#success_message').show();
+                        $('#scroll-top').click();
+                    }
+                ).fail(function() {
+                    $('#error_message').html("Something went wrong.  Please try again");  //server error
+                    $('#error_message').show();
+                    $('#scroll-top').click();
+                });
+            }else{
+                console.log('form is invalid');
+                    $('#error_message').html("Please fix the errors below.");  //form validation error
+                    $('#error_message').show();
+                    $('#scroll-top').click();
+            };
+
+            // $('#input_form').submit();
+        });
+    </script>
+	
+    </body>
+</html>
+
+<style type="text/css">
+    
+    .error{
+        color: red;
+    }
+
+
+</style>
