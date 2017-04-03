@@ -1105,7 +1105,29 @@
                                                     </div>
                                                 </div>
                                                 <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
-                                                <h3 class="title-border custom mb30">Who introduced you to the Harvard Innovation Labs?</h3>
+                                                <h3 class="title-border custom mb30">How many years of experience do you have in your current occupation?</h3>
+                                                <div class="row">
+                                                    <div class="col-md-7 col-lg-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Years Experience</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="years_experience" name="years_experience" class="form-control">
+                                                                    <option selected value="0">Less than 1</option>
+                                                                    <option  value="1">1</option>
+                                                                    <option  value="2">2</option>
+                                                                    <option  value="3">3</option>
+                                                                    <option  value="4">4</option>
+                                                                    <option  value="5">5</option>
+                                                                    <option  value="6">More than 5</option>
+                                                                    <option  value="10">More than 10</option>
+                                                                    <option  value="15">More than 15</option>
+                                                                    <option  value="20">More than 20</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+  <!--                                               <h3 class="title-border custom mb30">Who introduced you to the Harvard Innovation Labs?</h3>
                                                 <div class="row">
                                                     <div class="col-md-7 col-lg-6">
                                                         <div class="input-group">
@@ -1131,7 +1153,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
@@ -1351,6 +1373,7 @@
             }
 
             main_contact = $('#main_contact').val();
+            years_experience = $('#years_experience').val();
             message = $('#comment').val();
 
             roles = $("input[name=roles]:checked").map(function(){
@@ -1371,7 +1394,8 @@
                             expertise_list: expertise_list,
                             industry_list: industry_list,
                             bio: bio,
-                            desired_roles: roles
+                            desired_roles: roles,
+                            years_experience: years_experience
                         },
                         school: school,
                         degrees: degrees,
