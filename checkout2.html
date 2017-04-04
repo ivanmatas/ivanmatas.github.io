@@ -1412,6 +1412,7 @@
                         $('#scroll-top').click();
                         $('#input_form').trigger("reset");
                         industry_select.val(null).trigger("change");  //clear industries
+                        $('#picture_frame').hide(); //clear picture frame
                     }
                 ).fail(function() {
                     $('#error_message').html("Something went wrong.  Please try again");  //server error
