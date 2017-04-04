@@ -1253,9 +1253,10 @@
 
 
             // Use select2 on select fields
-            $('.industry_select2').select2({
+            industry_select = $('.industry_select2').select2({
                 placeholder: "What industries are you in?"
             });
+
 
             console.log('doc ready');
 
@@ -1410,6 +1411,7 @@
                         $('#success_message').show();
                         $('#scroll-top').click();
                         $('#input_form').trigger("reset");
+                        industry_select.val(null).trigger("change");  //clear industries
                     }
                 ).fail(function() {
                     $('#error_message').html("Something went wrong.  Please try again");  //server error
