@@ -119,7 +119,7 @@
                                                 <button class="btn btn-custom btn-margin-small-screen" id="linkedin" style="margin-bottom: 3px;">Import from LinkedIn</button>
                                             </h3>
                                             <form action="http://localhost:3000/people" id="input_form">
-                    
+                                                <input type="hidden" value="" id="linkedin_public_profile_url" />
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                 
@@ -1128,6 +1128,24 @@
                                                     </div>
                                                 </div>
 
+
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
+                                                <h3 class="title-border custom mb30">Do you have previous entrepreneurial experience?</h3>
+                                                <div class="row">
+                                                    <div class="col-md-7 col-lg-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon min-width"><span class="input-icon input-icon-country"></span><span class="input-text">Experience</span></span>
+                                                            <div class="clearfix">
+                                                                <select id="entrepreneurial_experience" name="entrepreneurial_experience" class="form-control">
+                                                                    <option disabled selected></option>
+                                                                    <option  value="true">Yes</option>
+                                                                    <option  value="false">No</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                                 <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
                                                <h3 class="title-border custom mb30">Do you have previous experience with other incubator programs?</h3>
                                                 <div class="row">
@@ -1392,7 +1410,7 @@
             second_email = $('#person_second_email').val();
             phone_number = $('#person_phone_number').val();
             title = $('#person_title').val();
-            
+            linkedin_public_profile_url = $('#linkedin_public_profile_url').val();
             bio = $('#person_bio').val();
             // expertise = $('#person_expertise').val();
             var expertise = $('input:checkbox:checked.expertise').map(function () {
@@ -1431,6 +1449,7 @@
 
             main_contact = $('#main_contact').val();
             years_experience = $('#years_experience').val();
+            entrepreneurial_experience = $('#entrepreneurial_experience').val();
             message = $('#comment').val();
 
             roles = $("input[name=roles]:checked").map(function(){
@@ -1457,7 +1476,9 @@
                             industry_list: industry_list,
                             bio: bio,
                             desired_roles: roles,
-                            years_experience: years_experience
+                            years_experience: years_experience,
+                            entrepreneurial_experience: entrepreneurial_experience,
+                            linkedin_profile_url: linkedin_public_profile_url
                         },
                         school: school,
                         degrees: degrees,
