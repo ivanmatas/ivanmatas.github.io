@@ -1127,6 +1127,60 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
+                                               <h3 class="title-border custom mb30">Do you have previous experience with other incubator programs?</h3>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+ 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="incubators" value="MassChallenge">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           MassChallenge
+                                                          </label>
+                                                        </div> 
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="incubators" value="Techstars">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Techstars
+                                                          </label>
+                                                        </div>                                                
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="incubators" value="Y Combinator">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Y Combinator
+                                                          </label>
+                                                        </div>
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="incubators" value="Other University Program">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Other University Program
+                                                          </label>
+                                                        </div>
+                                                        <div class="checkbox input-group checkbox_margin">
+                                                          <label class="custom-checkbox-wrapper">
+                                                            <span class="custom-checkbox-container">
+                                                                <input type="checkbox" name="incubators" value="Other">
+                                                                <span class="custom-checkbox-icon"></span>
+                                                            </span>
+                                                           Other
+                                                          </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
   <!--                                               <h3 class="title-border custom mb30">Who introduced you to the Harvard Innovation Labs?</h3>
                                                 <div class="row">
                                                     <div class="col-md-7 col-lg-6">
@@ -1154,10 +1208,12 @@
                                                         </div>
                                                     </div>
                                                 </div> -->
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;" />
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label for="message" class="input-desc">Startup Experience</label>
+                                                            <h3 class="title-border custom mb30">Startup Experience</h3>
+                                                            <!-- <label for="message" class="input-desc">Startup Experience</label> -->
                                                             <textarea class="form-control" rows="6" id="comment" name="message" placeholder="Please describe your experience founding or supporting startups in the broader startup ecosystem."></textarea>
                                                         </div>
                                                     </div>
@@ -1380,6 +1436,11 @@
             roles = $("input[name=roles]:checked").map(function(){
                         return this.value;
                     }).get();
+
+            incubators = $("input[name=incubators]:checked").map(function(){
+                        return this.value;
+                    }).get();
+            
             if($('#input_form').valid()){
                 console.log('form is valid');
                 $.post( "https://doorman-backend.herokuapp.com/people", {
@@ -1400,6 +1461,7 @@
                         },
                         school: school,
                         degrees: degrees,
+                        incubators: incubators,
                         miscellaneous: {
                             // message: message,  message does not go here because on the backend it is just a part of a user
                             main_contact: main_contact
