@@ -26,18 +26,6 @@ $(document).ready(function () {
         placeholder: "What industries are you in?"
     });
 
-    operations_select = $('.operations_select2').select2({
-        placeholder: "Choose one or more operations expertise if you have any"
-    });
-
-    software_select = $('.software_select2').select2({
-        placeholder: "Choose one or more software expertise if you have any"
-    });
-
-    med_select = $('.med_select2').select2({
-        placeholder: "Choose one or more med expertise if you have any"
-    });
-
 
     console.log('doc ready');
 
