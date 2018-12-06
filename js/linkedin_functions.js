@@ -19,7 +19,7 @@ var put_data_in_form = function (data) {
 
     // $.get("http://localhost:3000/people_data/" + data.emailAddress, function (crmData) {
     $.get("https://tapstage.herokuapp.com/people_data/" + data.emailAddress, function (crmData) {
-        populateFormWithCRMData(crmData);
+        populateFormWithCRMDataAfterLinkedin(crmData);
     });
 
     // put company and position title into fields
@@ -50,7 +50,8 @@ var log_out = function () {
     IN.User.logout(console.log('logged out'));
 };
 
-function populateFormWithCRMData(crmData) {
+function populateFormWithCRMDataAfterLinkedin(crmData) {
+    personId = crmData.person.id;
     $('#time_to_offer').val(crmData.person.time_to_offer);
     $('#involved_how').val(crmData.person.involved_how);
     $('#person_second_email').val(crmData.person.second_email);
@@ -65,20 +66,23 @@ function populateFormWithCRMData(crmData) {
             $('#school_affiliation').val(crmData.peopleSchool.affiliation).trigger('change');
             $('#school').val(crmData.school);
             for (var index in crmData.person.degrees) {
-                $("input[type=checkbox][value=" + crmData.person.degrees[index] + "]").click();
+                $("input[type=checkbox][value='" + crmData.person.degrees[index] + "']").click();
             }
             $('#school_year').val(new Date(crmData.peopleSchool.graduation_year).getFullYear())
         }
     }
 
-    $('.industry_select2').val(crmData.industryList).trigger('change');
-
-    for (var index in crmData.expertiseList) {
-        $("input[name='" + crmData.expertiseList[index] + "']").attr('checked', true);
+    for (var index in crmData.industryList) {
+        $("input.industry[name='" + crmData.industryList[index] + "']").attr('checked', true);
     }
-
+    for (var index in crmData.expertiseList) {
+        $("input.expertise[name='" + crmData.expertiseList[index] + "']").attr('checked', true);
+    }
+    for (var index in crmData.desiredRoles) {
+        $("input.involvement[name='" + crmData.desiredRoles[index] + "']").attr('checked', true);
+    }
     for (var index in crmData.incubators) {
-        $("input[type=checkbox][value=" + crmData.incubators[index] + "]").attr('checked', true);
+        $("input[type=checkbox][name='incubators'][value='" + crmData.incubators[index] + "']").attr('checked', true);
     }
 }
 
