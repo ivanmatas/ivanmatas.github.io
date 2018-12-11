@@ -166,6 +166,10 @@ $('#submit_button').click(function () {
         return this.value;
     }).get();
 
+    if (desired_roles.length === 0){
+        desired_roles = [" "]
+    }
+
     var industry = $('input:checkbox:checked.industry').map(function () {
         return this.value;
     }).get();
