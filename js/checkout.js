@@ -271,7 +271,7 @@ function createNewPerson(personDataObject) {
 function updatePerson(personDataObject) {
     $.ajax({
         // url: 'http://localhost:3000/people/input_form/' + personId,
-        url: 'http://tapstage.herokuapp.compeople/input_form/' + personId,
+        url: 'https://tapstage.herokuapp.compeople/input_form/' + personId,
         // url: 'http://doorman-backend.herokuapp.compeople/input_form/' + personId,
         type: 'PUT',
         data: personDataObject,
