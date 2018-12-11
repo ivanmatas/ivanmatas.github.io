@@ -148,6 +148,10 @@ body {
 
 @media (min-width: 992px) {
 
+	.harvard-buttons {
+		margin: 1%;
+	}
+
 	#wrapper.boxed {
 		margin: 30px auto;
 		box-shadow: 0 0 15px rgba(0,0,0, 0.1);
@@ -1716,7 +1720,9 @@ fieldset[disabled] .form-control {
 }
 
 @media (max-width: 767px){
-
+    .row {
+        margin: 0;
+    }
 	.nav-tabs > li > a > i,
 	.nav-pills > li > a > i{
 		display:none;
@@ -14650,6 +14656,10 @@ white - custom - dark of your color scheme */
 }
 
 @media (min-width:992px) {
+	h3 {
+		font-size: 19px;
+	}
+
 	#footer-bottom {
 		padding:25px 0;
 		text-align: left;
@@ -16044,10 +16054,22 @@ only screen and (min-device-pixel-ratio: 1.5) {
 /* ===========================================================
 --------------  31. Custom Styles created by Phil  -----------
 =============================================================*/
+.btn.btn-custom.btn-margin-small-screen.harvard-buttons {
+	margin-bottom: 3px;
+	background: #98CBC2;
+	color: #fff;
+	border-color: #98CBC2;
+	font-weight: 900;
+}
+
 @media (max-width: 767px) {
     .btn-margin-small-screen {
         margin-top: 18px;
     }
+
+	h3 {
+		font-size: 19px;
+	}
 }
 
 /*change jQuery select2 border color for selects*/

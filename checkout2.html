@@ -40,11 +40,12 @@
     <script src="https://codeundercoverdev.github.io/input_form_for_guests/js/queryloader2.min.js"></script>
 
     <script type="text/javascript" src="//platform.linkedin.com/in.js">
-        api_key:   77awl1kp5d4jh9
+        api_key:   77
+        awl1kp5d4jh9
     </script>
 
     <!--<script type="text/javascript" src="//platform.linkedin.com/in.js">-->
-        <!--api_key:   86u7n8320kdu1n-->
+    <!--api_key:   86u7n8320kdu1n-->
     <!--</script>-->
 
 </head>
@@ -69,7 +70,7 @@
                             <img src="https://codeundercoverdev.github.io/input_form_for_guests/media/ilab_logo.png">
                             <!--<img src="./media/ilab_logo.png">-->
                             <!--<img src="https://codeundercoverdev.github.io/input_form_for_guests/media/ilabs_logo.png"-->
-                                 <!--style="width: 60%; margin-top: -10px;">-->
+                            <!--style="width: 60%; margin-top: -10px;">-->
                         </a>
                     </div><!-- End .navbar-header -->
                     <div class="collapse navbar-collapse" id="main-navbar-container">
@@ -113,13 +114,17 @@
                                      aria-labelledby="headingTwo">
 
                                     <div class="panel-body" style="padding-bottom: 0px; padding-top: 16px;">
-                                        <h3 style="margin-bottom: 19px;">
-                                            Add your basic information and photo from LinkedIn:&nbsp;&nbsp;&nbsp;
-                                            <button class="btn btn-custom btn-margin-small-screen" id="linkedin"
-                                                    style="margin-bottom: 3px; background: #98CBC2; color: #fff;border-color: #98CBC2;font-weight: 900;">
-                                                Import from LinkedIn
-                                            </button>
-                                        </h3>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3 style="margin-bottom: 19px;">
+                                                    Add your basic information and photo from LinkedIn:&nbsp;&nbsp;&nbsp;
+                                                    <button class="btn btn-custom btn-margin-small-screen harvard-buttons" id="linkedin">
+                                                        Import from LinkedIn
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                        </div>
+
                                         <form action="http://localhost:3000/people" id="input_form">
                                             <input type="hidden" value="" id="linkedin_public_profile_url"/>
                                             <div class="row">
@@ -135,27 +140,32 @@
                                                 <div w3-include-html="affiliation.html"></div>
 
 
-                                            <!-- industry and expertise -->
-                                            <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
-                                            <h3 class="title-border custom mb30">Industry and Expertise</h3>
+                                                <!-- industry and expertise -->
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
+                                                <h3 class="title-border custom mb30">Industry and Expertise</h3>
 
-                                            <div w3-include-html="industry.html"></div>
-                                            <br><br><br>
-                                            <div w3-include-html="expertise.html"></div>
-                                            <br><br>
-                                            <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
+                                                <div w3-include-html="industry.html"></div>
+                                                <br><br><br>
+                                                <div w3-include-html="expertise.html"></div>
+                                                <br><br>
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
 
-                                            <div w3-include-html="harvard_involvement.html"></div>
+                                                <div w3-include-html="harvard_involvement.html"></div>
 
-                                            <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
-                                            <div w3-include-html="incubators.html"></div>
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
+                                                <div w3-include-html="incubators.html"></div>
+
+                                            </div>
                                         </form>
 
                                     </div><!-- End .panel-body -->
                                 </div><!-- End .panel-collapse -->
                             </div><!-- End .panel -->
                         </div><!-- End .panel-group -->
-                        <button class="btn btn-custom" style="width: 100%;background: #98CBC2; color: #fff;border-color: #98CBC2;font-weight: 900;" id="submit_button">Thank you for completing
+                        <br>
+                        <button class="btn btn-custom harvard-buttons"
+                                style="width: 100%;background: #98CBC2; color: #fff;border-color: #98CBC2;font-weight: 900;"
+                                id="submit_button">Thank you for completing
                             this information. &nbsp; SUBMIT
                         </button>
                     </div><!-- End .col-md-9 -->
@@ -201,10 +211,14 @@
             if (file) {
                 /*make an HTTP request using the attribute value as the file name:*/
                 xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
+                xhttp.onreadystatechange = function () {
                     if (this.readyState == 4) {
-                        if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-                        if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                        if (this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                        }
+                        if (this.status == 404) {
+                            elmnt.innerHTML = "Page not found.";
+                        }
                         /*remove the attribute, and call this function once more:*/
                         elmnt.removeAttribute("w3-include-html");
                         includeHTML();
@@ -217,6 +231,7 @@
             }
         }
     }
+
     includeHTML();
 </script>
 <!-- Smoothscroll -->
