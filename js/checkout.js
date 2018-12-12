@@ -20,9 +20,14 @@ var validator = $("#input_form").validate({
     }
 });
 
-$(document).ready(function () {
-    console.log('ready');
+$(window).load(function () {
     $("#loader").hide();
+    $('#other_role').prop('disabled', true);
+
+    $("input.involvement[name='Other']").click(function () {
+        $('#other_role').prop('disabled', !$(this).prop("checked"));
+    });
+
     // Use select2 on select fields
     industry_select = $('.industry_select2').select2({
         placeholder: "Select all that apply"
@@ -165,6 +170,8 @@ $('#submit_button').click(function () {
     var desired_roles = $('input:checkbox:checked.involvement').map(function () {
         return this.value;
     }).get();
+
+    desired_roles.push($('#other_role').val());
 
     if (desired_roles.length === 0){
         desired_roles = [" "]
