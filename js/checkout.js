@@ -165,13 +165,13 @@ $('#submit_button').click(function () {
         return this.value;
     }).get();
 
-    var expertise_list = expertise + "";
-
     var desired_roles = $('input:checkbox:checked.involvement').map(function () {
         return this.value;
     }).get();
 
-    desired_roles.push($('#other_role').val());
+    if($('#other_role').val() !== ""){
+        desired_roles.push($('#other_role').val());
+    }
 
     if (desired_roles.length === 0){
         desired_roles = [" "]
@@ -181,12 +181,8 @@ $('#submit_button').click(function () {
         return this.value;
     }).get();
 
-    // industry_list = industry;
-    industry_list = industry + "";
-
     school_name = $('#school').val();
     school_year = $('#school_year').val();
-
 
     // define school and degrees
     if (school_name) {
@@ -233,7 +229,7 @@ $('#submit_button').click(function () {
             phone_number: phone_number,
             remote_pic_url: $('#person_pic').val(),
             note: message,
-            expertise_list: expertise_list,
+            expertise_list: expertise,
             industry_list: industry,
             bio: bio,
             desired_roles: desired_roles,
