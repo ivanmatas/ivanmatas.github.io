@@ -23,10 +23,17 @@ var validator = $("#input_form").validate({
 $(window).load(function () {
     $("#loader").hide();
     $('#other_role').prop('disabled', true);
+    $('#startup_other').prop('disabled', true);
 
     $("input.involvement[name='Other']").click(function () {
         $('#other_role').prop('disabled', !$(this).prop("checked"));
     });
+
+    $("input.startup[name='Other']").click(function () {
+        $('#startup_other').prop('disabled', !$(this).prop("checked"));
+    });
+
+    preFillJudgeRole();
 
     // Use select2 on select fields
     industry_select = $('.industry_select2').select2({
@@ -99,12 +106,13 @@ function populateForm() {
 
 function fetchDataFromCRM(emailAddress) {
     $("#loader").show();
-     // $.get("http://localhost:3000/people_data/" + emailAddress, function (crmData) {
-     //    $.get("https://tapstage.herokuapp.com/people_data/" + emailAddress, function (crmData) {
-        $.get("https://doorman-backend.herokuapp.com/people_data/" + emailAddress, function (crmData) {
+    // $.get("http://localhost:3000/people_data/" + emailAddress, function (crmData) {
+        $.get("https://tapstage.herokuapp.com/people_data/" + emailAddress, function (crmData) {
+        //    $.get("https://doorman-backend.herokuapp.com/people_data/" + emailAddress, function (crmData) {
         populateFormWithCRMData(crmData);
+        preFillJudgeRole();
     });
-     $("#loader").hide();
+    $("#loader").hide();
 }
 
 function populateFormWithCRMData(crmData) {
@@ -135,6 +143,13 @@ function populateFormWithCRMData(crmData) {
         }
     }
 
+    for (var index in crmData.previousStartupRoles) {
+        $("input.startup[name='" + crmData.previousStartupRoles[index] + "']").attr('checked', true);
+        if ($("input.startup[name='" + crmData.previousStartupRoles[index] + "']").length === 0 && $("input.startup[name='Other']").is(':checked')) {
+            $('#startup_other').prop('disabled', false);
+            $('#startup_other').val(crmData.previousStartupRoles[index]);
+        }
+    }
     for (var index in crmData.industryList) {
         $("input.industry[name='" + crmData.industryList[index] + "']").attr('checked', true);
     }
@@ -143,11 +158,16 @@ function populateFormWithCRMData(crmData) {
     }
     for (var index in crmData.desiredRoles) {
         $("input.involvement[name='" + crmData.desiredRoles[index] + "']").attr('checked', true);
+        if ($("input.involvement[name='" + crmData.desiredRoles[index] + "']").length === 0 &&  $("input.involvement[name='Other']").is(':checked')) {
+            $('#other_role').prop('disabled', false);
+            $('#other_role').val(crmData.desiredRoles[index]);
+        }
     }
     for (var index in crmData.incubators) {
         $("input[type=checkbox][name='incubators'][value='" + crmData.incubators[index] + "']").attr('checked', true);
     }
 }
+
 // Form submission
 $('#submit_button').click(function () {
     validator.form();
@@ -169,12 +189,20 @@ $('#submit_button').click(function () {
         return this.value;
     }).get();
 
-    if($('#other_role').val() !== ""){
+    var previousStartupRoles = $('input:checkbox:checked.startup').map(function () {
+        return this.value;
+    }).get();
+
+    if ($('#other_role').val() !== "") {
         desired_roles.push($('#other_role').val());
     }
 
-    if (desired_roles.length === 0){
+    if (desired_roles.length === 0) {
         desired_roles = [" "]
+    }
+
+    if ($('#startup_other').val() !== "") {
+        previousStartupRoles.push($('#startup_other').val());
     }
 
     var industry = $('input:checkbox:checked.industry').map(function () {
@@ -187,7 +215,7 @@ $('#submit_button').click(function () {
     // define school and degrees
     if (school_name) {
         degrees = getDegrees();
-        if (school_affiliation.val() == 'Alumni' || school_affiliation.val() == 'Student' ) {
+        if (school_affiliation.val() == 'Alumni' || school_affiliation.val() == 'Student') {
             school = {
                 name: school_name,
                 year: school_year,
@@ -235,6 +263,7 @@ $('#submit_button').click(function () {
             desired_roles: desired_roles,
             involved_how: involved_how,
             time_to_offer: time_to_offer,
+            previous_startup_roles: previousStartupRoles,
             linkedin_profile_url: linkedin_public_profile_url
         },
         school: school,
@@ -263,45 +292,53 @@ $('#submit_button').click(function () {
 
 function createNewPerson(personDataObject) {
     // $.post("http://localhost:3000/people",
-    //     $.post("https://tapstage.herokuapp.com/people",
-        $.post("https://doorman-backend.herokuapp.com/people",
-        personDataObject, function () {
-            successChanges();
-        }
-    ).fail(function () {
-        $('#error_message').html("Something went wrong.  Please try again");  //server error
-        $('#error_message').show();
-        $('#scroll-top').click();
-    });
+        $.post("https://tapstage.herokuapp.com/people",
+        // $.post("https://doorman-backend.herokuapp.com/people",
+        personDataObject, successChanges
+    ).fail(failChanges);
 }
 
 function updatePerson(personDataObject) {
     $.ajax({
         // url: 'http://localhost:3000/people/input_form/' + personId,
-        // url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
-        url: 'https://doorman-backend.herokuapp.compeople/input_form/' + personId,
+        url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
+        // url: 'https://doorman-backend.herokuapp.compeople/input_form/' + personId,
         type: 'PUT',
         data: personDataObject,
-        success: function() {
-            successChanges();
-        }
-    }).fail(function (data) {
-        console.log(data);
-        $('#error_message').html("Something went wrong.  Please try again");  //server error
-        $('#error_message').show();
-        $('#scroll-top').click();
-    });
+        success: successChanges
+    }).fail(failChanges);
+}
+
+function failChanges() {
+    var errorMessage = "<b>Something went wrong.  Please try again</b>";
+    $(".modal-body").html(errorMessage);
+    $(".modal-body").css('color', 'red');
+    $('#exampleModalCenter').modal();
+    $('#scroll-top').click();
 }
 
 function successChanges() {
     $('#error_message').hide();
-    $('#success_message').html("Thanks for your interest in the Harvard Innovation Labs.");
-    $('#success_message').show();
-    $('#scroll-top').click();
+    var successMessage = "<b>The form was successfully submitted!</b><br><p>Thanks for your interest in the Harvard Innovation Labs.</p>";
     $('#input_form').trigger("reset");
     $(".industry").prop("checked", false);
     $(".expertise").prop("checked", false);
     $(".involvement").prop("checked", false);
     $(".incubators").prop("checked", false);
     $('#picture_frame').hide(); //clear picture frame
+    $(".modal-body").html(successMessage);
+    $(".modal-body").css('color', 'black');
+    $('#exampleModalCenter').modal();
+    $('#scroll-top').click();
+}
+
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function preFillJudgeRole() {
+    if (getParameterByName('role') === 'judge') {
+        $('input.involvement[name="President’s Innovation Challenge Semi-Finalist Judge"]').attr('checked', true);
+    }
 }
