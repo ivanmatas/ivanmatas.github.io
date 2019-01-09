@@ -16036,11 +16036,15 @@ styled buttons not container for vertical centered navs*/
     vertical-align: top;
 }
 
-.modal-footer , .modal-header {
+.modal-footer, .modal-header {
     background-color: #98CBC2;
 }
 
 .modal-btn {
     background: #fff;
     color: #000000;
+}
+
+#startup_other {
+    width: 100%;
 }
