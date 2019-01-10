@@ -16046,5 +16046,11 @@ styled buttons not container for vertical centered navs*/
 }
 
 #startup_other {
-    width: 100%;
+    margin-left: 3%;
+    width: 90%;
+}
+
+#other_role {
+    margin-left: 3%;
+    width: 90%;
 }
