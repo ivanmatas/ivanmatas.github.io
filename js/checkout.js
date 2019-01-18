@@ -1,4 +1,5 @@
 var personId = null;
+var isJudge = false;
 
 // Validation Functionality
 var validator = $("#input_form").validate({
@@ -266,6 +267,7 @@ $('#submit_button').click(function () {
             previous_startup_roles: previousStartupRoles,
             linkedin_profile_url: linkedin_public_profile_url
         },
+        is_judge: isJudge,
         school: school,
         degrees: degrees,
         incubators: incubators,
@@ -340,5 +342,6 @@ function getParameterByName(name) {
 function preFillJudgeRole() {
     if (getParameterByName('role') === 'judge') {
         $('input.involvement[name="President’s Innovation Challenge Semi-Finalist Judge"]').attr('checked', true);
+        isJudge = true;
     }
 }
