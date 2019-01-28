@@ -108,8 +108,8 @@ function populateForm() {
 function fetchDataFromCRM(emailAddress) {
     $("#loader").show();
     // $.get("http://localhost:3000/people_data/" + emailAddress, function (crmData) {
-        $.get("https://tapstage.herokuapp.com/people_data/" + emailAddress, function (crmData) {
-        //    $.get("https://doorman-backend.herokuapp.com/people_data/" + emailAddress, function (crmData) {
+    //     $.get("https://tapstage.herokuapp.com/people_data/" + emailAddress, function (crmData) {
+   $.get("https://doorman-backend.herokuapp.com/people_data/" + emailAddress, function (crmData) {
         populateFormWithCRMData(crmData);
         preFillJudgeRole();
     });
@@ -294,8 +294,8 @@ $('#submit_button').click(function () {
 
 function createNewPerson(personDataObject) {
     // $.post("http://localhost:3000/people",
-        $.post("https://tapstage.herokuapp.com/people",
-        // $.post("https://doorman-backend.herokuapp.com/people",
+        // $.post("https://tapstage.herokuapp.com/people",
+    $.post("https://doorman-backend.herokuapp.com/people",
         personDataObject, successChanges
     ).fail(failChanges);
 }
@@ -303,8 +303,8 @@ function createNewPerson(personDataObject) {
 function updatePerson(personDataObject) {
     $.ajax({
         // url: 'http://localhost:3000/people/input_form/' + personId,
-        url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
-        // url: 'https://doorman-backend.herokuapp.compeople/input_form/' + personId,
+        // url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
+        url: 'https://doorman-backend.herokuapp.compeople/input_form/' + personId,
         type: 'PUT',
         data: personDataObject,
         success: successChanges
