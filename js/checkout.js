@@ -323,7 +323,7 @@ function successChanges() {
     $('#error_message').hide();
     var successMessage = "<b>The form was successfully submitted!</b><br><p>";
     if (isJudge) {
-        successMessage += "Thank you for your updating your information for the Harvard Innovation Labs. We expect to select the judges for this years President’s Innovation Challenge in the next few weeks.</p>";
+        successMessage += "Thank you for your updating your information for the Harvard Innovation Labs. We expect to select the judges for this year's President’s Innovation Challenge in the next few weeks.</p>";
     } else {
         successMessage += "Thanks for your interest in the Harvard Innovation Labs.</p>";
     }
