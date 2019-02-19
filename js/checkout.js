@@ -118,15 +118,21 @@ function fetchDataFromCRM(emailAddress) {
 
 function populateFormWithCRMData(crmData) {
     personId = crmData.person.id;
+    if (crmData.isSecondaryEmail) {
+        $('#person_email').val(crmData.person.second_email);
+        $('#person_second_email').val(crmData.person.email);
+    } else {
+        $('#person_email').val(crmData.person.email);
+        $('#person_second_email').val(crmData.person.second_email);
+    }
+
     $('#person_first_name').val(crmData.person.first_name);
     $('#person_last_name').val(crmData.person.last_name);
-    $('#person_email').val(crmData.person.email);
     $('#person_title').val(crmData.person.title);
     $('#person_company').val(crmData.person.company);
     $('#person_bio').val(crmData.person.bio);
     $('#time_to_offer').val(crmData.person.time_to_offer);
     $('#involved_how').val(crmData.person.involved_how);
-    $('#person_second_email').val(crmData.person.second_email);
     $('#person_phone_number').val(crmData.person.phone_number);
 
     if (crmData.peopleSchool !== null) {

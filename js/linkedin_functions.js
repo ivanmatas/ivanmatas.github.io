@@ -18,8 +18,8 @@ var put_data_in_form = function (data) {
     console.log(data.publicProfileUrl);
 
     // $.get("http://localhost:3000/people_data/" + data.emailAddress, function (crmData) {
-    $.get("https://tapstage.herokuapp.com/people_data/" + data.emailAddress, function (crmData) {
-    // $.get("https://doorman-backend.herokuapp.com/people_data/" + data.emailAddress, function (crmData) {
+    // $.get("https://tapstage.herokuapp.com/people_data/" + data.emailAddress, function (crmData) {
+    $.get("https://doorman-backend.herokuapp.com/people_data/" + data.emailAddress, function (crmData) {
         populateFormWithCRMDataAfterLinkedin(crmData);
     });
 
@@ -53,9 +53,16 @@ var log_out = function () {
 
 function populateFormWithCRMDataAfterLinkedin(crmData) {
     personId = crmData.person.id;
+    if (crmData.isSecondaryEmail) {
+        $('#person_email').val(crmData.person.second_email);
+        $('#person_second_email').val(crmData.person.email);
+    } else {
+        $('#person_email').val(crmData.person.email);
+        $('#person_second_email').val(crmData.person.second_email);
+    }
+
     $('#time_to_offer').val(crmData.person.time_to_offer);
     $('#involved_how').val(crmData.person.involved_how);
-    $('#person_second_email').val(crmData.person.second_email);
     $('#person_phone_number').val(crmData.person.phone_number);
 
     if (crmData.peopleSchool !== null) {
