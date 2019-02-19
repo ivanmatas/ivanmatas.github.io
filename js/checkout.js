@@ -105,23 +105,32 @@ function populateForm() {
     fetchDataFromCRM(email);
 }
 
-function fetchDataFromCRM(emailAddress) {
+function populateFormUsingSecondaryEmail() {
+    var secondary_email = $('#person_second_email').val();
+    fetchDataFromCRM(secondary_email, true);
+}
+
+function fetchDataFromCRM(emailAddress, secondaryEmailData = false) {
     $("#loader").show();
     // $.get("http://localhost:3000/people_data/" + emailAddress, function (crmData) {
     //     $.get("https://tapstage.herokuapp.com/people_data/" + emailAddress, function (crmData) {
    $.get("https://doorman-backend.herokuapp.com/people_data/" + emailAddress, function (crmData) {
-        populateFormWithCRMData(crmData);
+       if($("#input_form").data('linkedin') == false){
+            populateFormWithCRMData(crmData, secondaryEmailData);
+       }else {
+           populateFormWithCRMDataAfterLinkedin(crmData, secondaryEmailData);
+       }
         preFillJudgeRole();
     });
     $("#loader").hide();
 }
 
-function populateFormWithCRMData(crmData) {
+function populateFormWithCRMData(crmData, secondaryEmailData) {
     personId = crmData.person.id;
-    if (crmData.isSecondaryEmail) {
+    if (crmData.isSecondaryEmail && !secondaryEmailData) {
         $('#person_email').val(crmData.person.second_email);
         $('#person_second_email').val(crmData.person.email);
-    } else {
+    } else if(!secondaryEmailData) {
         $('#person_email').val(crmData.person.email);
         $('#person_second_email').val(crmData.person.second_email);
     }

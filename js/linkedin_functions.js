@@ -16,6 +16,7 @@ var put_data_in_form = function (data) {
     console.log($('#person_first_name'));
     console.log('url');
     console.log(data.publicProfileUrl);
+    $("#input_form").data('linkedin', 'true');
 
     // $.get("http://localhost:3000/people_data/" + data.emailAddress, function (crmData) {
     // $.get("https://tapstage.herokuapp.com/people_data/" + data.emailAddress, function (crmData) {
@@ -51,12 +52,12 @@ var log_out = function () {
     IN.User.logout(console.log('logged out'));
 };
 
-function populateFormWithCRMDataAfterLinkedin(crmData) {
+function populateFormWithCRMDataAfterLinkedin(crmData, secondaryEmailData = false) {
     personId = crmData.person.id;
-    if (crmData.isSecondaryEmail) {
+    if (crmData.isSecondaryEmail && !secondaryEmailData) {
         $('#person_email').val(crmData.person.second_email);
         $('#person_second_email').val(crmData.person.email);
-    } else {
+    } else if(!secondaryEmailData) {
         $('#person_email').val(crmData.person.email);
         $('#person_second_email').val(crmData.person.second_email);
     }
