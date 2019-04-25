@@ -113,8 +113,8 @@ function populateFormUsingSecondaryEmail() {
 function fetchDataFromCRM(emailAddress, secondaryEmailData = false) {
     $("#loader").show();
     // $.get("http://localhost:3000/people_data/" + emailAddress, function (crmData) {
-    //     $.get("https://tapstage.herokuapp.com/people_data/" + emailAddress, function (crmData) {
-   $.get("https://doorman-backend.herokuapp.com/people_data/" + emailAddress, function (crmData) {
+        $.get("https://tapstage.herokuapp.com/people_data/" + emailAddress, function (crmData) {
+   // $.get("https://doorman-backend.herokuapp.com/people_data/" + emailAddress, function (crmData) {
        if($("#input_form").data('linkedin') == false){
             populateFormWithCRMData(crmData, secondaryEmailData);
        }else {
@@ -143,6 +143,7 @@ function populateFormWithCRMData(crmData, secondaryEmailData) {
     $('#time_to_offer').val(crmData.person.time_to_offer);
     $('#involved_how').val(crmData.person.involved_how);
     $('#person_phone_number').val(crmData.person.phone_number);
+    $('#reason_for_involvement').val(crmData.person.reason_for_involvement);
 
     if (crmData.peopleSchool !== null) {
         $('#school_affiliation').val(crmData.peopleSchool.affiliation === null ? 'None' : crmData.peopleSchool.affiliation).trigger('change');
@@ -182,6 +183,10 @@ function populateFormWithCRMData(crmData, secondaryEmailData) {
     for (var index in crmData.incubators) {
         $("input[type=checkbox][name='incubators'][value='" + crmData.incubators[index] + "']").attr('checked', true);
     }
+
+    for (var index in crmData.person.advisor_or_mentor_of) {
+        $("input[type=checkbox][name='advised'][value='" + crmData.person.advisor_or_mentor_of[index] + "']").attr('checked', true);
+    }
 }
 
 // Form submission
@@ -195,6 +200,7 @@ $('#submit_button').click(function () {
     title = $('#person_title').val();
     linkedin_public_profile_url = $('#linkedin_public_profile_url').val();
     bio = $('#person_bio').val();
+    reason_for_involvement = $('#reason_for_involvement').val();
     var company = $('#person_company').val();
     // expertise = $('#person_expertise').val();
     var expertise = $('input:checkbox:checked.expertise').map(function () {
@@ -202,6 +208,10 @@ $('#submit_button').click(function () {
     }).get();
 
     var desired_roles = $('input:checkbox:checked.involvement').map(function () {
+        return this.value;
+    }).get();
+
+    var advisor_or_mentor_of = $('input:checkbox:checked.advised').map(function () {
         return this.value;
     }).get();
 
@@ -276,7 +286,9 @@ $('#submit_button').click(function () {
             expertise_list: expertise,
             industry_list: industry,
             bio: bio,
+            reason_for_involvement: reason_for_involvement,
             desired_roles: desired_roles,
+            advisor_or_mentor_of: advisor_or_mentor_of,
             involved_how: involved_how,
             time_to_offer: time_to_offer,
             previous_startup_roles: previousStartupRoles,
@@ -309,8 +321,8 @@ $('#submit_button').click(function () {
 
 function createNewPerson(personDataObject) {
     // $.post("http://localhost:3000/people",
-        // $.post("https://tapstage.herokuapp.com/people",
-    $.post("https://doorman-backend.herokuapp.com/people",
+        $.post("https://tapstage.herokuapp.com/people",
+    // $.post("https://doorman-backend.herokuapp.com/people",
         personDataObject, successChanges
     ).fail(failChanges);
 }
@@ -318,8 +330,8 @@ function createNewPerson(personDataObject) {
 function updatePerson(personDataObject) {
     $.ajax({
         // url: 'http://localhost:3000/people/input_form/' + personId,
-        // url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
-        url: 'https://doorman-backend.herokuapp.com/people/input_form/' + personId,
+        url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
+        // url: 'https://doorman-backend.herokuapp.com/people/input_form/' + personId,
         type: 'PUT',
         data: personDataObject,
         success: successChanges

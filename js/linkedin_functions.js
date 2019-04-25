@@ -11,11 +11,6 @@ $(document).ready(function () {
 });
 
 var put_data_in_form = function (data) {
-    console.log('in put data in form function');
-    console.log(data);
-    console.log($('#person_first_name'));
-    console.log('url');
-    console.log(data.publicProfileUrl);
     $("#input_form").data('linkedin', 'true');
 
     // $.get("http://localhost:3000/people_data/" + data.emailAddress, function (crmData) {
@@ -65,6 +60,7 @@ function populateFormWithCRMDataAfterLinkedin(crmData, secondaryEmailData = fals
     $('#time_to_offer').val(crmData.person.time_to_offer);
     $('#involved_how').val(crmData.person.involved_how);
     $('#person_phone_number').val(crmData.person.phone_number);
+    $('#reason_for_involvement').val(crmData.person.reason_for_involvement);
 
     if (crmData.peopleSchool !== null) {
         $('#school_affiliation').val(crmData.peopleSchool.affiliation === null ? 'None' : crmData.peopleSchool.affiliation).trigger('change');
@@ -92,6 +88,9 @@ function populateFormWithCRMDataAfterLinkedin(crmData, secondaryEmailData = fals
     }
     for (var index in crmData.incubators) {
         $("input[type=checkbox][name='incubators'][value='" + crmData.incubators[index] + "']").attr('checked', true);
+    }
+    for (var index in crmData.person.advisor_or_mentor_of) {
+        $("input[type=checkbox][name='advised'][value='" + crmData.person.advisor_or_mentor_of[index] + "']").attr('checked', true);
     }
 }
 
