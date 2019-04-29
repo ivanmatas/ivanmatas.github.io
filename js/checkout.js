@@ -143,6 +143,7 @@ function populateFormWithCRMData(crmData, secondaryEmailData) {
     $('#time_to_offer').val(crmData.person.time_to_offer);
     $('#involved_how').val(crmData.person.involved_how);
     $('#person_phone_number').val(crmData.person.phone_number);
+    $('#person_contact').val(crmData.person.recommended_by);
     $('#reason_for_involvement').val(crmData.person.reason_for_involvement);
 
     if (crmData.peopleSchool !== null) {
@@ -260,6 +261,7 @@ $('#submit_button').click(function () {
     }
 
     main_contact = $('#main_contact').val();
+    recommended_by = $('#person_contact').val();
     var time_to_offer = $('#time_to_offer').val();
     var involved_how = $('#involved_how').val();
     message = $('#comment').val();
@@ -292,7 +294,8 @@ $('#submit_button').click(function () {
             involved_how: involved_how,
             time_to_offer: time_to_offer,
             previous_startup_roles: previousStartupRoles,
-            linkedin_profile_url: linkedin_public_profile_url
+            linkedin_profile_url: linkedin_public_profile_url,
+            recommended_by: recommended_by
         },
         is_judge: isJudge,
         school: school,

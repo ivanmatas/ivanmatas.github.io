@@ -60,6 +60,7 @@ function populateFormWithCRMDataAfterLinkedin(crmData, secondaryEmailData = fals
     $('#time_to_offer').val(crmData.person.time_to_offer);
     $('#involved_how').val(crmData.person.involved_how);
     $('#person_phone_number').val(crmData.person.phone_number);
+    $('#person_contact').val(crmData.person.recommended_by);
     $('#reason_for_involvement').val(crmData.person.reason_for_involvement);
 
     if (crmData.peopleSchool !== null) {
