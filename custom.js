@@ -375,7 +375,8 @@ $(window).load(() => {
     function processHashToken() {
         var token = getParameterByName('token');
         if (token == null) {
-            failChanges();
+            $(".loader").hide();
+            initialize_alert("Token is not set in the URL.", 'danger', "header");
         } else {
             $.ajax({
                 url: 'http://localhost:3000/website/input-form/' + token,
