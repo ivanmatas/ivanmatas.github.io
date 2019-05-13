@@ -363,7 +363,7 @@ $(window).load(() => {
         } else {
             $.ajax({
                 // url: 'http://localhost:3000/website/input-form/' + token,
-                url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
+                url: 'https://tapstage.herokuapp.com/people/input_form/' + token,
                 // url: 'https://doorman-backend.herokuapp.com/people/input_form/' + personId,
                 type: 'GET',
                 success: function (crmData) {
