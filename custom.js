@@ -363,8 +363,8 @@ $(window).load(() => {
         } else {
             $.ajax({
                 // url: 'http://localhost:3000/website/input-form/' + token,
-                url: 'https://tapstage.herokuapp.com/people/input-form/' + token,
-                // url: 'https://doorman-backend.herokuapp.com/people/input-form/' + personId,
+                url: 'https://tapstage.herokuapp.com/website/input-form/' + token,
+                // url: 'https://doorman-backend.herokuapp.com/website/input-form/' + personId,
                 type: 'GET',
                 success: function (crmData) {
                     $(".loader").hide();
@@ -392,4 +392,4 @@ $(window).load(() => {
             $("#" + placementId).append(alert);
         }
     }
-})
+});
