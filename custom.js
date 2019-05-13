@@ -300,8 +300,8 @@ $(window).load(() => {
     });
 
     function createNewPerson(personDataObject) {
-        $.post("http://localhost:3000/people",
-            // $.post("https://tapstage.herokuapp.com/people",
+        // $.post("http://localhost:3000/people",
+            $.post("https://tapstage.herokuapp.com/people",
             // $.post("https://doorman-backend.herokuapp.com/people",
             personDataObject, successChanges
         ).fail(failChanges);
@@ -311,8 +311,8 @@ $(window).load(() => {
         console.log(personDataObject);
 
         $.ajax({
-            url: 'http://localhost:3000/people/input_form/' + personId,
-            // url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
+            // url: 'http://localhost:3000/people/input_form/' + personId,
+            url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
             // url: 'https://doorman-backend.herokuapp.com/people/input_form/' + personId,
             type: 'PUT',
             data: personDataObject,
@@ -362,8 +362,8 @@ $(window).load(() => {
             initialize_alert("Token is not set in the URL.", 'danger', "header");
         } else {
             $.ajax({
-                url: 'http://localhost:3000/website/input-form/' + token,
-                // url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
+                // url: 'http://localhost:3000/website/input-form/' + token,
+                url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
                 // url: 'https://doorman-backend.herokuapp.com/people/input_form/' + personId,
                 type: 'GET',
                 success: function (crmData) {
