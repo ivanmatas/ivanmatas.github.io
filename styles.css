@@ -1,0 +1,12 @@
+.empty-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.alert {
+  font-size: 16px;
+  margin: 10% auto;
+  width: 50%;
+}

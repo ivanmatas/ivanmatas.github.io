@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Harvard Innovation Labs | Tell us about you</title>
+    <meta name="description"
+          content="Want to get involved at the i-labs?  Tell us a little bit about you and let's connect!">
+
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS Dependancies -->
+    <link rel="stylesheet" href="https://harvard-innovation-labs.github.io/input_form_for_guests/css/animate.css">
+    <link rel="stylesheet" href="https://harvard-innovation-labs.github.io/input_form_for_guests/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://harvard-innovation-labs.github.io/input_form_for_guests/css/harvard/select2.css">
+    <link rel="stylesheet" href="https://harvard-innovation-labs.github.io/input_form_for_guests/css/checkout.css">
+
+
+
+    <!--<link rel="stylesheet" href="css/checkout.css">-->
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="https://harvard-innovation-labs.github.io/input_form_for_guests/css/style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" id="color-scheme"
+          href="https://harvard-innovation-labs.github.io/input_form_for_guests/css/colors/green.css">
+
+    <!-- Favicon and Apple Icons -->
+    <link rel="icon" type="image/png"
+          href="https://harvard-innovation-labs.github.io/input_form_for_guests/media/logo_favicon.png">
+
+    <!-- Modernizr -->
+    <script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/modernizr.js"></script>
+
+    <!--- jQuery -->
+    <script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/jquery.min.js"></script>
+    <script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/harvard/jquery.validate.js"></script>
+
+    <!-- Queryloader -->
+    <script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/queryloader2.min.js"></script>
+
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+        api_key:   77
+        awl1kp5d4jh9
+    </script>
+
+    <!--<script type="text/javascript" src="//platform.linkedin.com/in.js">-->
+        <!--api_key:   86u7n8320kdu1n-->
+    <!--</script>-->
+
+</head>
+<body>
+<div class="boss-loader-overlay"></div><!-- End .boss-loader-overlay -->
+<div id="wrapper">
+    <header id="header" role="banner">
+        <div class="collapse navbar-white" id="header-search-form">
+            <div class="container">
+                <form class="navbar-form animated fadeInDown" role="search">
+                    <input type="search" id="s" name="s" class="form-control" placeholder="Search in here...">
+                    <button type="submit" class="btn-circle" title="Search"><i class="fa fa-search"></i></button>
+                </form>
+            </div><!-- End .container -->
+        </div><!-- End #header-search-form -->
+        <nav class="navbar navbar-white animated-dropdown ttb-dropdown" role="navigation">
+            <div class="navbar-inner sticky-menu">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand text-uppercase" href="https://i-lab.harvard.edu/volunteer-form"
+                           title="Boss - Multipurpose Premium Html5 Template">
+                            <img src="https://harvard-innovation-labs.github.io/input_form_for_guests/media/ilab_logo.png">
+                            <!--<img src="./media/ilab_logo.png">-->
+                            <!--<img src="https://harvard-innovation-labs.github.io/input_form_for_guests/media/ilabs_logo.png"-->
+                            <!--style="width: 60%; margin-top: -10px;">-->
+                        </a>
+                    </div><!-- End .navbar-header -->
+                    <div class="collapse navbar-collapse" id="main-navbar-container">
+                        <ul class="nav navbar-nav">
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container -->
+            </div><!-- End .navbar-inner -->
+        </nav>
+    </header><!-- End #header -->
+
+    <div class="loader"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary modal-btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content" role="main">
+        <div class="checkout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-md-push-9" style="margin-top: 50px;">
+                        <div class="checkout-progress-box">
+                            <img src="" id="picture_frame" style="width: 100%; display: none;"/>
+                            <input type="hidden" value="" id="person_pic"/>
+
+                        </div><!-- End .checkout-progress-box -->
+                    </div><!-- End .col-md-3 -->
+                    <div class="col-md-9 col-md-pull-3">
+                        <div class="panel-group" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-border-tb">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h2 class="panel-title" style="padding-left: inherit;">
+                                        <div class="alert alert-success" id="success_message"
+                                             style="display: none; margin-top: 10px;"></div>
+                                        <div class="alert alert-danger" id="error_message"
+                                             style="display: none; margin-top: 10px;"></div>
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true"
+                                           aria-controls="collapseOne">
+                                            Thank you for supporting the Harvard Innovation Labs. <br/> Please create
+                                            your profile below. &nbsp;<br/>
+                                        </a>
+
+                                    </h2>
+                                </div><!-- End .panel-heading -->
+                                <div id="collapseTwo" class="panel-collapse " role="tabpanel"
+                                     aria-labelledby="headingTwo">
+
+                                    <div class="panel-body" style="padding-bottom: 0px; padding-top: 16px;">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3 style="margin-bottom: 19px;">
+                                                    Add your basic information and photo from LinkedIn:&nbsp;&nbsp;&nbsp;
+                                                    <button class="btn btn-custom btn-margin-small-screen harvard-buttons"
+                                                            id="linkedin">
+                                                        Import from LinkedIn
+                                                    </button>
+                                                </h3>
+                                            </div>
+                                        </div>
+
+                                        <form action="http://localhost:3000/people" id="input_form"
+                                              data-linkedin="false">
+                                            <input type="hidden" value="" id="linkedin_public_profile_url"/>
+                                            <div class="row">
+                                                <div class="input-group" id="email_holder">
+                                                        <span class="input-group-addon min-width"><span
+                                                                class="input-icon input-icon-email"></span><span
+                                                                class="input-text">Email *</span></span>
+                                                    <input type="email" class="form-control" id="person_email"
+                                                           name="email">
+                                                </div><!-- End .input-group -->
+
+                                                <div w3-include-html="personal_info.html"></div>
+                                                <div w3-include-html="affiliation.html"></div>
+
+
+                                                <!-- industry and expertise -->
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
+                                                <h3 class="title-border custom mb30">Industry and Expertise</h3>
+
+                                                <div w3-include-html="industry.html"></div>
+                                                <br><br><br>
+                                                <div w3-include-html="expertise.html"></div>
+                                                <br><br>
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
+
+                                                <div w3-include-html="harvard_involvement.html"></div>
+
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
+                                                <div w3-include-html="incubators.html"></div>
+                                                <hr style="background-color: #eaeaea; color: #eaeaea; height: 1px; border: 0px;"/>
+                                                <div w3-include-html="advised.html"></div>
+
+                                            </div>
+                                        </form>
+
+                                    </div><!-- End .panel-body -->
+                                </div><!-- End .panel-collapse -->
+                            </div><!-- End .panel -->
+                        </div><!-- End .panel-group -->
+                        <br>
+                        <button class="btn btn-custom harvard-buttons"
+                                style="width: 100%;background: #98CBC2; color: #fff;border-color: #98CBC2;font-weight: 900;"
+                                id="submit_button">Thank you for completing
+                            this information. &nbsp; SUBMIT
+                        </button>
+                    </div><!-- End .col-md-9 -->
+
+                </div><!-- End .row -->
+
+            </div><!-- End .container -->
+
+        </div><!-- End .checkout -->
+
+
+    </div><!-- End #content -->
+
+    <footer id="footer" role="contentinfo">
+        <div id="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-push-6">
+
+                    </div><!-- End .col-md-6 -->
+                    <div class="col-md-6 col-md-pull-6">
+                        <p class="copyright">Harvard Innovation Labs. All rights reserved. &copy; <a
+                                href="https://i-lab.harvard.edu">i-lab.harvard.edu</a></p>
+                    </div><!-- End .col-md-6 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End #footer-bottom -->
+    </footer><!-- End #footer -->
+
+</div><!-- End #wrapper -->
+<a href="#top" id="scroll-top" title="Back to Top"><i class="fa fa-angle-up"></i></a>
+<!-- END -->
+
+<script>
+    function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                        }
+                        if (this.status == 404) {
+                            elmnt.innerHTML = "Page not found.";
+                        }
+                        /*remove the attribute, and call this function once more:*/
+                        elmnt.removeAttribute("w3-include-html");
+                        includeHTML();
+                    }
+                };
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+            }
+        }
+    }
+
+    includeHTML();
+</script>
+
+<!-- Smoothscroll -->
+<!--<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/smoothscroll.js"></script>-->
+
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/bootstrap.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/jquery.hoverIntent.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/jquery.nicescroll.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/waypoints.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/waypoints-sticky.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/jquery.debouncedresize.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/retina.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/owl.carousel.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/jflickrfeed.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/jquery.selectbox.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/twitter/jquery.tweet.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/jquery.bootstrap-touchspin.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/skrollr.min.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/harvard/select2.js"></script>
+<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/main.js"></script>
+
+<!--<script src="js/linkedin_functions.js"></script>-->
+<!--<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/linkedin_functions.js"></script>-->
+<!--<script src="https://harvard-innovation-labs.github.io/input_form_for_guests/js/checkout.js"></script>-->
+<script src="custom.js"></script>
+<script src="linkedin_functions.js"></script>
+
+</body>
+</html>
