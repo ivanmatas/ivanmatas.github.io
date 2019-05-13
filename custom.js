@@ -11,13 +11,11 @@ $(window).load(() => {
         errorPlacement: function (error, element) {
             if (element.attr("name") == "first_name") {
                 $('#first_name_holder').before(error);
-                // $('#first_name_holder').css("margin-bottom", "0px");
             } else if (element.attr("name") == "last_name") {
                 $('#last_name_holder').before(error);
             } else if (element.attr("name") == "email") {
                 $('#email_holder').before(error);
             }
-            // $('.alert-danger').append(error)
         }
     });
 
@@ -104,21 +102,6 @@ $(window).load(() => {
             }
         });
     });
-
-
-// function fetchDataFromCRM(emailAddress, secondaryEmailData = false) {
-//     $("#loader").show();
-//     // $.get("http://localhost:3000/people_data/" + emailAddress, function (crmData) {
-//     //     $.get("https://tapstage.herokuapp.com/people_data/" + emailAddress, function (crmData) {
-//     $.get("https://doorman-backend.herokuapp.com/people_data/" + emailAddress, function (crmData) {
-//         if ($("#input_form").data('linkedin') == false) {
-//             populateFormWithCRMData(crmData, secondaryEmailData);
-//         } else {
-//             populateFormWithCRMDataAfterLinkedin(crmData, secondaryEmailData);
-//         }
-//     });
-//     $("#loader").hide();
-// }
 
     function populateFormWithCRMData(crmData) {
         console.log(crmData);
@@ -393,7 +376,6 @@ $(window).load(() => {
                 $(".loader").hide();
                 initialize_alert(response.responseText, 'danger', "header");
             });
-            // }).fail(failChanges);
         }
     }
 
