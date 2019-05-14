@@ -1,5 +1,6 @@
 $(window).load(() => {
     var personId = null;
+    var globalToken = null;
 
 // Validation Functionality
     var validator = $("#input_form").validate({
@@ -28,6 +29,7 @@ $(window).load(() => {
         $('#other_role').prop('disabled', true);
         $('#startup_other').prop('disabled', true);
         processHashToken();
+        processLinkedInData();
 
         $("input.involvement[name='Other']").click(function () {
             $('#other_role').prop('disabled', !$(this).prop("checked"));
@@ -54,10 +56,8 @@ $(window).load(() => {
         // School Affiliation inputs
         var school_affiliation = $('#school_affiliation');
         school_affiliation.change(function () {
-            console.log('aff change');
             // if school affiliation exists at all
             if (school_affiliation.val()) {
-                console.log('ovoo')
                 $('#school_holder').show();
                 var currentYear = (new Date()).getFullYear();
                 var schoolYearSelect = $('#school_year');
@@ -81,7 +81,6 @@ $(window).load(() => {
                     }
                 });
             } else {
-                console.log('ovoo2');
                 $('#school_year').val("");
                 $('#school').val("");
                 $('#school_year_holder').hide();
@@ -104,7 +103,6 @@ $(window).load(() => {
     });
 
     function populateFormWithCRMData(crmData) {
-        console.log(crmData);
         personId = crmData.person.id;
 
         $('#person_email').val(crmData.person.email);
@@ -119,6 +117,13 @@ $(window).load(() => {
         $('#person_phone_number').val(crmData.person.phone_number);
         $('#person_contact').val(crmData.person.recommended_by);
         $('#reason_for_involvement').val(crmData.person.reason_for_involvement);
+
+        if (crmData.person.pic.url !== null) {
+            console.log(crmData.person.pic.url);
+            $('#person_pic').val(crmData.person.pic.url);
+            $('#picture_frame').show().attr('src', crmData.person.pic.url);
+            $('#person_remote_pic_url').val(crmData.person.pic.url);
+        }
 
         if (crmData.peopleSchool !== null) {
             $('#school_affiliation').val(crmData.peopleSchool.affiliation === null ? 'None' : crmData.peopleSchool.affiliation).trigger('change');
@@ -301,15 +306,13 @@ $(window).load(() => {
 
     function createNewPerson(personDataObject) {
         // $.post("http://localhost:3000/people",
-        $.post("https://tapstage.herokuapp.com/people",
+            $.post("https://tapstage.herokuapp.com/people",
             // $.post("https://doorman-backend.herokuapp.com/people",
             personDataObject, successChanges
         ).fail(failChanges);
     }
 
     function updatePerson(personDataObject) {
-        console.log(personDataObject);
-
         $.ajax({
             // url: 'http://localhost:3000/people/input_form/' + personId,
             url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
@@ -318,7 +321,6 @@ $(window).load(() => {
             data: personDataObject,
             success: successChanges
         }).fail(failChanges);
-
     }
 
     function failChanges(message = null) {
@@ -328,7 +330,7 @@ $(window).load(() => {
         } else {
             errorMessage = "<b>Something went wrong.  Please try again</b>";
         }
-        console.log(errorMessage);
+
         $(".modal-body").html(errorMessage).css('color', 'red');
         $('#exampleModalCenter').modal();
         $('#scroll-top').click();
@@ -356,11 +358,12 @@ $(window).load(() => {
     }
 
     function processHashToken() {
-        var token = getParameterByName('token');
+        const token = getParameterByName('token');
         if (token == null) {
             $(".loader").hide();
             initialize_alert("Token is not set in the URL.", 'danger', "header");
         } else {
+            globalToken = token;
             $.ajax({
                 // url: 'http://localhost:3000/website/input-form/' + token,
                 url: 'https://tapstage.herokuapp.com/website/input-form/' + token,
@@ -379,6 +382,26 @@ $(window).load(() => {
         }
     }
 
+    function processLinkedInData() {
+        let auth_code = getParameterByName('code');
+        if (auth_code !== null) {
+            // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=' + globalToken;
+            let redirectUrl = 'https://ivanmatas.github.io/index.html?token=' + globalToken;
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/website/linkedin-auth',
+                data: {auth_code: auth_code, redirect_uri: redirectUrl},
+                success: function (response) {
+                    populateFormWithLinkedinData(response);
+                }
+            }).fail(function (response) {
+                console.log('lose');
+                console.log(response);
+            });
+        }
+    }
+
     function initialize_alert(text, type, placementId, prepend = false) {
         var alert = '<div class="alert alert-' + type + '" role="alert">\n' +
             text +
@@ -393,27 +416,24 @@ $(window).load(() => {
         }
     }
 
-
     $("#linkedin").click(function (e) {
         e.preventDefault();
-        // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=rrj2rQDV4zuJoKF3';
-        let redirectUrl = 'https://ivanmatas.github.io/index.html?token=rrj2rQDV4zuJoKF3';
+        // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=' + globalToken;
+        let redirectUrl = 'https://ivanmatas.github.io/index.html?token=' + globalToken;
         const clientId = '86u7n8320kdu1n';
         let scope = 'r_liteprofile%20r_emailaddress%20w_member_social';
 
         let authUrl = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=' + clientId + '&redirect_uri=' + redirectUrl + '&scope=' + scope;
 
-        $.ajax({
-            headers: { "Accept": "application/json"},
-            type: 'GET',
-            url: authUrl,
-            success: function (response) {
-               console.log('dobro');
-               console.log(response);
-            }
-        }).fail(function (response) {
-            console.log('lose');
-            console.log(response);
-        });
+        window.location.replace(authUrl);
     });
+
+    function populateFormWithLinkedinData(data) {
+        $('#person_first_name').val(data.person.localizedFirstName);
+        $('#person_last_name').val(data.person.localizedLastName);
+        $('#person_email').val(data.person.email);
+        $('#person_pic').val(data.person.image);
+        $('#picture_frame').show().attr('src', data.person.image);
+        $('#person_remote_pic_url').val(data.person.image);
+    }
 });
