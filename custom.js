@@ -301,7 +301,7 @@ $(window).load(() => {
 
     function createNewPerson(personDataObject) {
         // $.post("http://localhost:3000/people",
-            $.post("https://tapstage.herokuapp.com/people",
+        $.post("https://tapstage.herokuapp.com/people",
             // $.post("https://doorman-backend.herokuapp.com/people",
             personDataObject, successChanges
         ).fail(failChanges);
@@ -392,4 +392,28 @@ $(window).load(() => {
             $("#" + placementId).append(alert);
         }
     }
+
+
+    $("#linkedin").click(function (e) {
+        e.preventDefault();
+        // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=rrj2rQDV4zuJoKF3';
+        let redirectUrl = 'https://ivanmatas.github.io/index.html?token=rrj2rQDV4zuJoKF3';
+        const clientId = '86u7n8320kdu1n';
+        let scope = 'r_liteprofile%20r_emailaddress%20w_member_social';
+
+        let authUrl = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=' + clientId + '&redirect_uri=' + redirectUrl + '&scope=' + scope;
+
+        $.ajax({
+            headers: { "Accept": "application/json"},
+            type: 'GET',
+            url: authUrl,
+            success: function (response) {
+               console.log('dobro');
+               console.log(response);
+            }
+        }).fail(function (response) {
+            console.log('lose');
+            console.log(response);
+        });
+    });
 });
