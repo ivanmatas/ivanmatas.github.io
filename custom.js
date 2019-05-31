@@ -374,9 +374,13 @@ $(window).load(function () {
             // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=' + globalToken;
             let redirectUrl = 'https://ivanmatas.github.io/index.html?token=' + globalToken;
 
+            // var url = 'http://localhost:3000/website/linkedin-auth';
+            var url = 'https://tapstage.herokuapp.com/website/linkedin-auth';
+            // var url = 'https://doorman-backend.herokuapp.com/website/linkedin-auth';
+
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:3000/website/linkedin-auth',
+                url: url,
                 data: {auth_code: auth_code, redirect_uri: redirectUrl},
                 success: function (response) {
                     populateFormWithLinkedinData(response);
