@@ -1,4 +1,4 @@
-$(window).load(() => {
+$(window).load(function () {
     var personId = null;
     var globalToken = null;
 
@@ -21,85 +21,82 @@ $(window).load(() => {
     });
 
 
-// $(window).load(function () {
-    $(document).ready(function () {
-        $("#content").hide();
-        $("#footer").addClass('empty-footer');
-        $("#loader").show();
-        $('#other_role').prop('disabled', true);
-        $('#startup_other').prop('disabled', true);
-        processHashToken();
-        processLinkedInData();
+    $("#content").hide();
+    $("#footer").addClass('empty-footer');
+    $("#loader").show();
+    $('#other_role').prop('disabled', true);
+    $('#startup_other').prop('disabled', true);
+    processHashToken();
+    processLinkedInData();
 
-        $("input.involvement[name='Other']").click(function () {
-            $('#other_role').prop('disabled', !$(this).prop("checked"));
+    $("input.involvement[name='Other']").click(function () {
+        $('#other_role').prop('disabled', !$(this).prop("checked"));
+    });
+
+    $("input.startup[name='Other']").click(function () {
+        $('#startup_other').prop('disabled', !$(this).prop("checked"));
+    });
+
+    // Use select2 on select fields
+    industry_select = $('.industry_select2').select2({
+        placeholder: "Select all that apply"
+    });
+
+    // get school affiliation checkbox values
+    getDegrees = function () {
+        var allVals = [];
+        $('input:checkbox:checked.degree_option').each(function () {
+            allVals.push($(this).val());
         });
+        return allVals;
+    };
 
-        $("input.startup[name='Other']").click(function () {
-            $('#startup_other').prop('disabled', !$(this).prop("checked"));
-        });
+    // School Affiliation inputs
+    var school_affiliation = $('#school_affiliation');
+    school_affiliation.change(function () {
+        // if school affiliation exists at all
+        if (school_affiliation.val()) {
+            $('#school_holder').show();
+            var currentYear = (new Date()).getFullYear();
+            var schoolYearSelect = $('#school_year');
+            for (var i = currentYear + 6; i > 1900; i--) {
+                var opt = document.createElement("option");
+                opt.value = i;
+                opt.innerHTML = i; // whatever property it has
 
-        // Use select2 on select fields
-        industry_select = $('.industry_select2').select2({
-            placeholder: "Select all that apply"
-        });
+                // then append it to the select element
+                // schoolYearSelect.appendChild(opt);
+                schoolYearSelect.append($("<option />").val(i).text(i));
 
-        // get school affiliation checkbox values
-        getDegrees = function () {
-            var allVals = [];
-            $('input:checkbox:checked.degree_option').each(function () {
-                allVals.push($(this).val());
-            });
-            return allVals;
-        };
+            }
 
-        // School Affiliation inputs
-        var school_affiliation = $('#school_affiliation');
-        school_affiliation.change(function () {
-            // if school affiliation exists at all
-            if (school_affiliation.val()) {
-                $('#school_holder').show();
-                var currentYear = (new Date()).getFullYear();
-                var schoolYearSelect = $('#school_year');
-                for (var i = currentYear + 6; i > 1900; i--) {
-                    var opt = document.createElement("option");
-                    opt.value = i;
-                    opt.innerHTML = i; // whatever property it has
-
-                    // then append it to the select element
-                    // schoolYearSelect.appendChild(opt);
-                    schoolYearSelect.append($("<option />").val(i).text(i));
-
+            // add requirement validation to school name
+            $("#school").rules("add", {
+                required: true,
+                messages: {
+                    required: "Required input",
+                    minlength: jQuery.validator.format("Please select a school.")
                 }
+            });
+        } else {
+            $('#school_year').val("");
+            $('#school').val("");
+            $('#school_year_holder').hide();
+            $('#degrees').hide();
+            $('.degree_option').removeAttr('checked');
+            $('#school_holder').hide();
+        }
 
-                // add requirement validation to school name
-                $("#school").rules("add", {
-                    required: true,
-                    messages: {
-                        required: "Required input",
-                        minlength: jQuery.validator.format("Please select a school.")
-                    }
-                });
-            } else {
-                $('#school_year').val("");
-                $('#school').val("");
-                $('#school_year_holder').hide();
-                $('#degrees').hide();
-                $('.degree_option').removeAttr('checked');
-                $('#school_holder').hide();
-            }
-
-            if (school_affiliation.val() == 'Alumni' || school_affiliation.val() == 'Student') {
-                $('#school_year_holder').show();
-                $('#degrees').show();
-            } else {
-                $('#school_year_holder').hide();
-                $('#degrees').hide();
-                $('.degree_option').removeAttr('checked');
-                $('#school_year').val("");
-                $('#school').val("");
-            }
-        });
+        if (school_affiliation.val() == 'Alumni' || school_affiliation.val() == 'Student') {
+            $('#school_year_holder').show();
+            $('#degrees').show();
+        } else {
+            $('#school_year_holder').hide();
+            $('#degrees').hide();
+            $('.degree_option').removeAttr('checked');
+            $('#school_year').val("");
+            $('#school').val("");
+        }
     });
 
     function populateFormWithCRMData(crmData) {
@@ -119,7 +116,6 @@ $(window).load(() => {
         $('#reason_for_involvement').val(crmData.person.reason_for_involvement);
 
         if (crmData.person.pic.url !== null) {
-            console.log(crmData.person.pic.url);
             $('#person_pic').val(crmData.person.pic.url);
             $('#picture_frame').show().attr('src', crmData.person.pic.url);
             $('#person_remote_pic_url').val(crmData.person.pic.url);
@@ -168,9 +164,9 @@ $(window).load(() => {
             $("input[type=checkbox][name='incubators'][value='" + crmData.incubators[index] + "']").attr('checked', true);
         }
 
-        crmData.person.advisor_or_mentor_of.forEach((element) => {
-            $($(`[data-value='${element}']`)).prop('checked', true);
-        })
+        for (var index in crmData.person.advisor_or_mentor_of) {
+            $("input.advised[name='" + crmData.person.advisor_or_mentor_of[index] + "']").attr('checked', true);
+        }
     }
 
 // Form submission
@@ -292,11 +288,7 @@ $(window).load(() => {
 
         if ($('#input_form').valid()) {
             console.log('form is valid');
-            if (personId !== null && personId !== undefined) {
-                updatePerson(personDataObject);
-            } else {
-                createNewPerson(personDataObject);
-            }
+            createOrUpdatePerson(personDataObject);
         } else {
             console.log('form is invalid');
             $('#error_message').html("Please fix the errors below.").show();  //form validation error
@@ -304,23 +296,13 @@ $(window).load(() => {
         }
     });
 
-    function createNewPerson(personDataObject) {
-        // $.post("http://localhost:3000/people",
-            $.post("https://tapstage.herokuapp.com/people",
-            // $.post("https://doorman-backend.herokuapp.com/people",
+    // function createNewPerson(personDataObject) {
+    function createOrUpdatePerson(personDataObject) {
+        // $.post('http://localhost:3000/people/input_form/' + globalToken,
+        $.post('https://tapstage.herokuapp.com/people/input_form/' + globalToken,
+            // $.post('https://doorman-backend.herokuapp.com/people/input_form/' + globalToken,
             personDataObject, successChanges
         ).fail(failChanges);
-    }
-
-    function updatePerson(personDataObject) {
-        $.ajax({
-            // url: 'http://localhost:3000/people/input_form/' + personId,
-            url: 'https://tapstage.herokuapp.com/people/input_form/' + personId,
-            // url: 'https://doorman-backend.herokuapp.com/people/input_form/' + personId,
-            type: 'PUT',
-            data: personDataObject,
-            success: successChanges
-        }).fail(failChanges);
     }
 
     function failChanges(message = null) {
@@ -361,7 +343,10 @@ $(window).load(() => {
         const token = getParameterByName('token');
         if (token == null) {
             $(".loader").hide();
-            initialize_alert("Token is not set in the URL.", 'danger', "header");
+            //////////////////////////////////////
+            $("#content").show();
+            $("#footer").removeClass('empty-footer');
+            /////////////////////////////////////
         } else {
             globalToken = token;
             $.ajax({
@@ -374,6 +359,7 @@ $(window).load(() => {
                     $("#content").show();
                     $("#footer").removeClass('empty-footer');
                     populateFormWithCRMData(crmData);
+
                 }
             }).fail(function (response) {
                 $(".loader").hide();
@@ -396,7 +382,6 @@ $(window).load(() => {
                     populateFormWithLinkedinData(response);
                 }
             }).fail(function (response) {
-                console.log('lose');
                 console.log(response);
             });
         }
