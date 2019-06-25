@@ -299,8 +299,8 @@ $(window).load(function () {
     // function createNewPerson(personDataObject) {
     function createOrUpdatePerson(personDataObject) {
         // $.post('http://localhost:3000/people/input_form/' + globalToken,
-        $.post('https://tapstage.herokuapp.com/people/input_form/' + globalToken,
-            // $.post('https://doorman-backend.herokuapp.com/people/input_form/' + globalToken,
+        // $.post('https://tapstage.herokuapp.com/people/input_form/' + globalToken,
+        $.post('https://doorman-backend.herokuapp.com/people/input_form/' + globalToken,
             personDataObject, successChanges
         ).fail(failChanges);
     }
@@ -351,8 +351,8 @@ $(window).load(function () {
             globalToken = token;
             $.ajax({
                 // url: 'http://localhost:3000/website/input-form/' + token,
-                url: 'https://tapstage.herokuapp.com/website/input-form/' + token,
-                // url: 'https://doorman-backend.herokuapp.com/website/input-form/' + personId,
+                // url: 'https://tapstage.herokuapp.com/website/input-form/' + token,
+                url: 'https://doorman-backend.herokuapp.com/website/input-form/' + token,
                 type: 'GET',
                 success: function (crmData) {
                     $(".loader").hide();
@@ -375,8 +375,8 @@ $(window).load(function () {
             let redirectUrl = 'https://ivanmatas.github.io/index.html?token=' + globalToken;
 
             // var url = 'http://localhost:3000/website/linkedin-auth';
-            var url = 'https://tapstage.herokuapp.com/website/linkedin-auth';
-            // var url = 'https://doorman-backend.herokuapp.com/website/linkedin-auth';
+            // var url = 'https://tapstage.herokuapp.com/website/linkedin-auth';
+            var url = 'https://doorman-backend.herokuapp.com/website/linkedin-auth';
 
             $.ajax({
                 type: 'POST',
@@ -408,7 +408,14 @@ $(window).load(function () {
     $("#linkedin").click(function (e) {
         e.preventDefault();
         // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=' + globalToken;
-        let redirectUrl = 'https://ivanmatas.github.io/index.html?token=' + globalToken;
+        // let redirectUrlRoot = 'http://localhost:63342/refactored_input_form/index.html';
+        let redirectUrlRoot = 'https://ivanmatas.github.io/index.html';
+        let redirectUrl = '';
+        if (globalToken) {
+            redirectUrl = redirectUrlRoot + '?token=' + globalToken;
+        } else {
+            redirectUrl = redirectUrlRoot;
+        }
         const clientId = '86u7n8320kdu1n';
         let scope = 'r_liteprofile%20r_emailaddress%20w_member_social';
 
