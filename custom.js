@@ -372,7 +372,8 @@ $(window).load(function () {
         let auth_code = getParameterByName('code');
         if (auth_code !== null) {
             // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=' + globalToken;
-            let redirectUrl = 'https://ivanmatas.github.io/index.html?token=' + globalToken;
+            // let redirectUrl = 'https://ivanmatas.github.io/index.html?token=' + globalToken;
+            let redirectUrl = 'https://innovationlabs.harvard.edu/hil-volunteers/?token=' + globalToken;
 
             // var url = 'http://localhost:3000/website/linkedin-auth';
             // var url = 'https://tapstage.herokuapp.com/website/linkedin-auth';
@@ -409,7 +410,8 @@ $(window).load(function () {
         e.preventDefault();
         // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=' + globalToken;
         // let redirectUrlRoot = 'http://localhost:63342/refactored_input_form/index.html';
-        let redirectUrlRoot = 'https://ivanmatas.github.io/index.html';
+        // let redirectUrlRoot = 'https://ivanmatas.github.io/index.html';
+        let redirectUrlRoot = 'https://innovationlabs.harvard.edu/hil-volunteers/';
         let redirectUrl = '';
         if (globalToken) {
             redirectUrl = redirectUrlRoot + '?token=' + globalToken;
