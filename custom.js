@@ -299,8 +299,8 @@ $(window).load(function () {
     // function createNewPerson(personDataObject) {
     function createOrUpdatePerson(personDataObject) {
         // $.post('http://localhost:3000/people/input_form/' + globalToken,
-        // $.post('https://tapstage.herokuapp.com/people/input_form/' + globalToken,
-        $.post('https://doorman-backend.herokuapp.com/people/input_form/' + globalToken,
+        $.post('https://tapstage.herokuapp.com/people/input_form/' + globalToken,
+        // $.post('https://doorman-backend.herokuapp.com/people/input_form/' + globalToken,
             personDataObject, successChanges
         ).fail(failChanges);
     }
@@ -351,8 +351,8 @@ $(window).load(function () {
             globalToken = token;
             $.ajax({
                 // url: 'http://localhost:3000/website/input-form/' + token,
-                // url: 'https://tapstage.herokuapp.com/website/input-form/' + token,
-                url: 'https://doorman-backend.herokuapp.com/website/input-form/' + token,
+                url: 'https://tapstage.herokuapp.com/website/input-form/' + token,
+                // url: 'https://doorman-backend.herokuapp.com/website/input-form/' + token,
                 type: 'GET',
                 success: function (crmData) {
                     $(".loader").hide();
