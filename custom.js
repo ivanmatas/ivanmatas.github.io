@@ -299,8 +299,8 @@ $(window).load(function () {
     // function createNewPerson(personDataObject) {
     function createOrUpdatePerson(personDataObject) {
         // $.post('http://localhost:3000/people/input_form/' + globalToken,
-        $.post('https://tapstage.herokuapp.com/people/input_form/' + globalToken,
-        // $.post('https://doorman-backend.herokuapp.com/people/input_form/' + globalToken,
+        // $.post('https://tapstage.herokuapp.com/people/input_form/' + globalToken,
+        $.post('https://doorman-backend.herokuapp.com/people/input_form/' + globalToken,
             personDataObject, successChanges
         ).fail(failChanges);
     }
@@ -351,8 +351,8 @@ $(window).load(function () {
             globalToken = token;
             $.ajax({
                 // url: 'http://localhost:3000/website/input-form/' + token,
-                url: 'https://tapstage.herokuapp.com/website/input-form/' + token,
-                // url: 'https://doorman-backend.herokuapp.com/website/input-form/' + token,
+                // url: 'https://tapstage.herokuapp.com/website/input-form/' + token,
+                url: 'https://doorman-backend.herokuapp.com/website/input-form/' + token,
                 type: 'GET',
                 success: function (crmData) {
                     $(".loader").hide();
@@ -408,7 +408,6 @@ $(window).load(function () {
 
     $("#linkedin").click(function (e) {
         e.preventDefault();
-        // let redirectUrl = 'http://localhost:63342/refactored_input_form/index.html?token=' + globalToken;
         // let redirectUrlRoot = 'http://localhost:63342/refactored_input_form/index.html';
         // let redirectUrlRoot = 'https://ivanmatas.github.io/index.html';
         let redirectUrlRoot = 'https://innovationlabs.harvard.edu/hil-volunteers/';
@@ -418,7 +417,8 @@ $(window).load(function () {
         } else {
             redirectUrl = redirectUrlRoot;
         }
-        const clientId = '86u7n8320kdu1n';
+        // const clientId = '86u7n8320kdu1n'; TEST APP
+        const clientId = '77awl1kp5d4jh9';
         let scope = 'r_liteprofile%20r_emailaddress%20w_member_social';
 
         let authUrl = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=' + clientId + '&redirect_uri=' + redirectUrl + '&scope=' + scope;
